@@ -1,0 +1,34 @@
+.aside {
+  width: 100%;
+  background-color: #f6f6f6;
+  text-align: center;
+  padding-top: 100px;
+
+
+  &_content {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+  & h1{
+    font-size: 18px;
+    line-height: 84px;
+    color: #171717;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+
+  & p{
+    font-size: 14px;
+    line-height: 28px;
+    color: #787878;
+    font-weight: 400;
+    font-family: "Nunito Sans", sans-serif;
+    text-align: center;
+  }
+
+}

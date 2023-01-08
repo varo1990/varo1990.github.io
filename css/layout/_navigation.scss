@@ -1,0 +1,55 @@
+.header {
+
+  &_nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    align-items: center;
+
+  }
+
+
+  &_nav_list:not(:last-child) {
+    margin-right: 30px;
+
+  }
+
+  &_nav_link {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 171%;
+    font-weight: 900;
+    font-family: "Roboto",sans-serif;
+    text-align: right;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      cursor: pointer;
+      color: #00e0d0;
+      transition: ease-out 0.8s;
+    }
+
+  }
+
+}
+.nav{
+  display: flex;
+
+}
+.menu_check {
+  display: none;
+}
+
+.menu_check_label {
+  display: none;
+}
+
+
+
+
+
+
+
+

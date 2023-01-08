@@ -1,0 +1,38 @@
+@media (pointer: coarse){
+  @import "coarse";
+}
+
+@media (pointer:coarse) {
+  @import "touch";
+}
+@media only screen and (max-width: 1700px ) {
+  @import "mx1440";
+}
+@media only screen and (max-width: 1400px) {
+  @import "mx1400";
+}
+
+@media only screen and (max-width: 1365px ) {
+  @import "mx1366";
+}
+@media only screen and (max-width: 1200px ) {
+  @import "mx1200";
+}
+@media only screen and (max-width: 1170px) {
+  @import "mx1170";
+}
+@media only screen and (max-width: 992px ) {
+  @import "mx992";
+}
+@media only screen and (max-width: 768px ) {
+  @import "mx767";
+}
+@media only screen and (max-width: 560px) {
+  @import "mx560";
+}
+@media only screen and (max-width: 425px) {
+  @import "mx425";
+}
+@media only screen and (max-width: 375px ) {
+  @import "mx375";
+}

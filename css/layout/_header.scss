@@ -1,0 +1,98 @@
+.header {
+  width: 100%;
+  height: 670px;
+  background-image: url("#{$img}header.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: cover;
+  position: relative;
+
+  &_menu{
+    width: 100%;
+  }
+
+  &_logo {
+    width: 130px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    & p{
+      font-size: 30px;
+      color: #238a9c;
+      font-weight: 250;
+      font-family: "Roboto", sans-serif;
+      width: 80px;
+      margin-left: 5px;
+    }
+  }
+
+
+  &_slider{
+
+    margin: 115px auto 0 auto;
+    text-align: center;
+  }
+  &_item{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+
+
+
+
+
+&_title h1 {
+  height: 74px;
+  font-size: 32px;
+  color: #ffffff;
+  font-weight: 900;
+  font-family: "Playfair Display",sans-serif;
+}
+
+.border {
+  width: 50px;
+  height: 1px;
+  background-color: #00e0d0;
+  margin: 0 auto;
+}
+
+  &_text {
+  width: 780px;
+  height: 79px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  color: #ffffff;
+  font-weight: 300;
+  font-family: "Roboto",sans-serif;
+  text-align: center;
+  margin-top: 25px;
+}
+
+&_btn {
+  width: 120px;
+  height: 40px;
+  margin-top: 50px;
+  border-radius: 2px;
+  background-color: rgba(0, 224, 208, 0);
+  border: 1px solid #00e0d0;
+  font-size: 16px;
+  color: #00e0d0;
+  font-weight: 400;
+  font-family: "Hammersmith One",sans-serif;
+  text-align: center;
+}
+
+  &_btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #00e0d0;;
+}
+
+.dotnav {
+  margin-top: 80px;
+}
+}

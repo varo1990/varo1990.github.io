@@ -1,0 +1,108 @@
+.contact {
+  width: 100%;
+  height: 650px;
+  background-color: #ffffff;
+  padding-top: 70px;
+
+}
+
+.contact_form {
+  width: 520px;
+  height: 540px;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 330px
+}
+
+.contact_form h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #413d4b;
+  font-weight: 700;
+  font-family: "Playfair Display";
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+.input {
+  width: 460px;
+  height: 45px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #413d4b;
+  font-weight: 300;
+  font-family: "Roboto";
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.form-textarea {
+  width: 460px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #413d4b;
+  font-weight: 300;
+  font-family: "Roboto";
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.input_btn {
+  font-size: 16px;
+  color: #00e0d0;
+  font-family: "Hammersmith One";
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  border-radius: 2px;
+  background-color: rgba(0, 224, 208, 0);
+  border: 1px solid #00e0d0;
+  margin: 10px;
+  padding-left: 10px;
+}
+
+.input_btn:hover {
+  cursor: pointer;
+  background-color: #00e0d0;
+  color: white;
+}
+
+.contact_img {
+  width: 520px;
+  height: 540px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.contact_img h2 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #413d4b;
+  font-weight: 700;
+  font-family: "Playfair Display";
+  margin-bottom: 26px;
+  margin-left: 39px;
+}
+
+.left {
+  width: 220px;
+  display: inline-block;
+
+}
+
+.icon {
+  display: block;
+  margin-bottom: 55px;
+  margin-left: 40px;
+  padding-right: 10px;
+}
+
+.right {
+  width: 220px;
+  display: inline-block;
+}
