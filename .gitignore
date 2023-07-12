@@ -1,0 +1,69 @@
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# env variables
+env.php
+
+# composer vendor dir
+/vendor
+/runtime/cache
+/runtime/logs
+/node_modules
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+/plfiles
+
+# vs code config
+.vscode/
+
+# vagrant folder
+.vagrant
+
+# all logs
+*.log
+
+# local python & pythons libs files
+pyvenv/
+.hypothesis
+
+# Файлы учетной записи пользователя
+.bash_history
+.bashrc
+.cache
+.composer/
+.config/
+.local/
+.npm/
+.profile
+.selected_editor
+.ssh
+.sudo_as_admin_successful
+snap/
+.psql_history
+docker-compose.yml
+*.xlsx#
+*.csv#
+.git-credentials
+.vscode-server/
+.wget-hsts

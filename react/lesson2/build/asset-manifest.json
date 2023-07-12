@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3f5e5ae7.css",
+    "main.js": "/static/js/main.c9244eb6.js",
+    "static/js/787.b46b54c8.chunk.js": "/static/js/787.b46b54c8.chunk.js",
+    "static/media/naughty-love-stories.jpg": "/static/media/naughty-love-stories.1bcacffd6e5a6345b7aa.jpg",
+    "static/media/woolf.jpg": "/static/media/woolf.3163f1e3a62e8ac5bf14.jpg",
+    "static/media/13.jpg": "/static/media/13.60827dbe73533db16f27.jpg",
+    "static/media/15.jpg": "/static/media/15.530e6fb1f44c95936871.jpg",
+    "static/media/banner.webp": "/static/media/banner.b98a289d594b6f13374d.webp",
+    "static/media/12.jpg": "/static/media/12.b3dadde849bc7ffdc5f4.jpg",
+    "static/media/14.jpg": "/static/media/14.cae56e252a2e649e403c.jpg",
+    "static/media/story.jpg": "/static/media/story.6ce0ac671ab8be4a5986.jpg",
+    "static/media/gohst.jpg": "/static/media/gohst.3cb439ddc649f36fb421.jpg",
+    "static/media/11.png": "/static/media/11.3a118f5c1b03f9934e77.png",
+    "index.html": "/index.html",
+    "main.3f5e5ae7.css.map": "/static/css/main.3f5e5ae7.css.map",
+    "main.c9244eb6.js.map": "/static/js/main.c9244eb6.js.map",
+    "787.b46b54c8.chunk.js.map": "/static/js/787.b46b54c8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3f5e5ae7.css",
+    "static/js/main.c9244eb6.js"
+  ]
+}

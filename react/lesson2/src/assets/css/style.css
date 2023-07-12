@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: Sans-Serif, Tahoma;
+    background-color: white;
+}
+
+.wrapper {
+    width: 1700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+}
+
+h2{
+    border-bottom: 2px solid black;
+}
+
+.books {
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+    background-color: #bee0be;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+}
+
+.booksList{
+    border: 2px solid black;
+    margin-left: 10px;
+}
+
+.booksList_items{
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.booksList_items h3 {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.booksList_items h4 {
+    color: red;
+    font-size: 26px;
+}
+
+.booksList_items p{
+    color: #07881e;
+    font-size: 22px;
+}
+
+button{
+    width: 100px;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px auto;
+}
+
+button:hover{
+    background-color: #48ff00;
+    color: #0c110c;
+}
+
+.brand{
+    width: 100%;
+    margin: 10px auto;
+    padding: 15px;
+}
+
+.brand_logo {
+    display: flex;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.brand-item {
+    width: calc(100% / 5 - 10px);
+    margin-left: 15px;
+    height: 500px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-img {
+    width: 172px;
+    height: 152px;
+    object-fit: cover;
+    margin: 40px auto;
+}
