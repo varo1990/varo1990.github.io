@@ -1,0 +1,60 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font:  $font-stack;
+  color: $primary-color;
+  font-size: $fz;
+}
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+}
+h1{
+  font-size: 30px;
+  padding-top: 35px;
+  color: #ffffff;
+  font-family: "Raleway";
+  &:after{
+    content: "";
+    display: block;
+    padding-top: 30px;
+    width: 65px;
+    border-bottom: 2px solid #ffffff;
+    margin: 0;
+
+  }
+
+}
+h2{
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+  font-family: "Open Sans";
+
+}
+h3{
+
+}
+h4{
+  width: 885px;
+  margin-bottom: 25px;
+  font-size: $fz - 1;
+  color: #b4ad9e;
+  font-weight: 300;
+  font-family: "Ubuntu" ,Sans-Serif;
+}
+p{
+  font-size: 14px;
+  line-height: 20px;
+  color: #86878b;
+  font-weight: 400;
+  font-family: "Open Sans";
+}

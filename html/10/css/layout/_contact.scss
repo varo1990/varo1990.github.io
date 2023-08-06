@@ -1,0 +1,40 @@
+.contact{
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  &_title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 70px;
+
+    & h2 {
+      font-size: 36px;
+      line-height: 43px;
+      color: #212121;
+      font-family: "Raleway",sans-serif;
+      text-align: center;
+
+      &:after {
+        content: "";
+        display: block;
+        padding-top: 25px;
+        width: 70px;
+        border-bottom: 2px solid #ff8b38;
+        margin: 0 auto;
+      }
+    }
+
+    & p {
+      font-size: 14px;
+      line-height: 20px;
+      color: #86878b;
+      font-weight: 400;
+      font-family: "Open Sans",sans-serif;
+      padding-top: 25px;
+    }
+  }
+
+}
