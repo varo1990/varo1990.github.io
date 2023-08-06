@@ -1,0 +1,60 @@
+.footer {
+  width: 100%;
+  background-color: #ffffff;
+  padding-top: 250px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  & h3{
+    font-size: 15px;
+    line-height: 80px;
+    color: #616161;
+    font-weight: 400;
+    font-family: "Roboto",sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  &_content {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 50px;
+  }
+  &_item{
+    display: flex;
+    flex-direction: column;
+    & h2{
+      font-size: 20px;
+      line-height: 80px;
+      color: #4a4a4a;
+      font-weight: 500;
+      font-family: "Roboto", sans-serif;
+    }
+    & a{
+      width: 192px;
+      height: 35px;
+      font-size: 16px;
+      line-height: 25px;
+      color: #616161;
+      font-weight: 400;
+      font-family: "Roboto",sans-serif;
+      &:hover{
+        cursor: pointer;
+        color: #fbad27;
+      }
+    }
+
+  }
+&_icon{
+  padding: 5px;
+  & a{
+    font-size: 25px;
+    padding: 5px;
+  }
+}
+
+}

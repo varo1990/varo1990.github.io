@@ -1,0 +1,59 @@
+.header_menu {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+
+  .nav {
+    width: calc(100% - 210px);
+
+    &_block {
+      display: flex;
+      justify-content: start;
+
+    }
+
+    &_list {
+      list-style-type: none;
+      margin-right: 25px;
+
+      &:nth-last-child(1) {
+        margin-right: 0;
+      }
+
+    }
+
+    &_link {
+
+      font-size: 16px;
+      line-height: 37px;
+      color: #ffffff;
+      font-weight: 400;
+      font-family: "Roboto", sans-serif;
+
+      &:hover {
+        color: #fbad27;
+      }
+
+    }
+
+  }
+
+  &_tel {
+
+  }
+}
+
+.tel_link {
+  @extend .nav_link;
+
+}
+
+.hr {
+  width: 1276px;
+  height: 1px;
+  margin: 0 auto;
+  background-color: #8795a9;
+}

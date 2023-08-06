@@ -1,0 +1,78 @@
+
+.header {
+  width: 100%;
+  background-color: #b2b2b2;
+  background-image: url("#{$img}08.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+  height: 710px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  &_content{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 215px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    & h1{
+      font-size: 72px;
+      letter-spacing: 1px;
+      line-height: 80px;
+      color: #ffffff;
+      font-weight: 700;
+      font-family: "Roboto",sans-serif;
+      text-align: center;
+    }
+    & p{
+      font-size: 20px;
+      line-height: 80px;
+      color: #ffffff;
+      font-weight: 500;
+      font-family: "Roboto",sans-serif;
+      text-align: center;
+    }
+
+  }
+  &_watch{
+    width: 190px;
+    height: 65px;
+    position: absolute;
+    bottom: 0;
+    left: 120px;
+
+  }
+&_video{
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
+  &:hover{
+    cursor: pointer;
+    color: #fbad27;
+  }
+
+ }
+   &_line:first-line{
+   font-size: 14px;
+
+ }
+  &_icon{
+    float: left;
+    font-size: 43px;
+    padding: 10px;
+  }
+}
+
+
+

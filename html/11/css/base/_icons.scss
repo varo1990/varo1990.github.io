@@ -1,0 +1,57 @@
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('#{$path}webfonts/icomoon.eot?weh68o');
+  src:  url('#{$path}webfonts/icomoon.eot?weh68o#iefix') format('embedded-opentype'),
+  url('#{$path}webfonts/icomoon.ttf?weh68o') format('truetype'),
+  url('#{$path}webfonts/icomoon.woff?weh68o') format('woff'),
+  url('#{$path}webfonts/icomoon.svg?weh68o#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-quotes-left:before {
+  content: "\e977";
+}
+.icon-quotes-right:before {
+  content: "\e978";
+}
+.icon-search:before {
+  content: "\e986";
+}
+.icon-airplane:before {
+  content: "\e9af";
+}
+.icon-star-full:before {
+  content: "\e9d9";
+}
+.icon-heart:before {
+  content: "\e9da";
+}
+.icon-play2:before {
+  content: "\ea15";
+}
+.icon-facebook:before {
+  content: "\ea90";
+}
+.icon-instagram:before {
+  content: "\ea92";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
