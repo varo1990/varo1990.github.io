@@ -3,7 +3,11 @@ import Wrapper from "../components/Wrapper";
 
 function History(props) {
     return (
-        <Wrapper></Wrapper>
+        <Wrapper>
+            <div className="content">
+
+            </div>
+        </Wrapper>
     );
 }
 

@@ -1,7 +1,5 @@
 import React, {useCallback, useState} from 'react';
 import logo from "../assets/image/logo.svg"
-import language from "../assets/icon/language.svg"
-import arrow_drop from "../assets/icon/arrow_drop_down.svg"
 import macbook from "../assets/image/home/Macbook.svg"
 import star from "../assets/icon/star.svg"
 import googleplay from "../assets/image/home/googleplay.svg"
@@ -11,7 +9,6 @@ import mail from "../assets/icon/mail.svg"
 import {useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import Slider from "../components/Slider";
-import Languages from "../components/Languages";
 
 function Home(props) {
   const navigate = useNavigate()

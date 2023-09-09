@@ -6,7 +6,10 @@ import TaskCategory from "../components/TaskCategory";
 function Category(props) {
   return (
     <Wrapper>
-      <Categories/>
+      <div className="content">
+        <Categories/>
+      </div>
+
     </Wrapper>
   );
 }
