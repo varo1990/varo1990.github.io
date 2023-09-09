@@ -1,5 +1,7 @@
 # phpstorm project files
 .idea
+.sass-cache
+
 
 # netbeans project files
 nbproject

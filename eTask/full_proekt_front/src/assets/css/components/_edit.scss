@@ -1,0 +1,42 @@
+.edit-button-container {
+  position: relative;
+
+}
+
+.edit-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  button{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.edit-button img {
+  margin-left: 5px;
+}
+
+.edit-options {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.edit-options p {
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.edit-options p:hover {
+  background-color: #f4f4f4;
+}

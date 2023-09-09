@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$path_font}Roboto-Regular.woff2') format('woff2');
+  //url('.#{$path_font}Roboto-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$path_font}Roboto-Bold.woff2') format('woff2');
+  //url('#{$path_font}Roboto-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
