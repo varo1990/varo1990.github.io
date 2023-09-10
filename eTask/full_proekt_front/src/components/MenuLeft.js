@@ -65,14 +65,6 @@ function MenuLeft(props) {
                     </li>
                     <li>
                         <div>
-                            <img src={contact} alt=""/>
-
-                            <NavLink to="/contactus"><p>Contact Us</p></NavLink>
-
-                        </div>
-                    </li>
-                    <li>
-                        <div>
                             <img src={history} alt=""/>
 
                             <NavLink to="/history"><p>History</p></NavLink>

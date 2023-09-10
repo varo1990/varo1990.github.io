@@ -29,27 +29,47 @@ const Tasks = () => {
   const [email, setEmail] = useState("");
   const [telegram, setTelegram] = useState("");
   const [error, setError] = useState("");
+  const [showInstruction, setShowInstruction] = useState(false);
+  const [taskDateValid, setTaskDateValid] = useState('');
+  const [taskInputError, setTaskInputError] = useState('');
+  const [taskDateError, setTaskDateError] = useState('');
 
-  console.log(error)
+
+
+
   const handleSubmit = useCallback((ev) => {
     ev.preventDefault();
+    let hasError = false;
+
     if (!category) {
       setError("Error category");
+      hasError = true;
     } else if (!color) {
       setError("Error color");
+      hasError = true;
     } else if (taskItems.length === 0) {
       setError("Error item");
+      hasError = true;
     } else {
-      dispatch(createTask({taskItems, category, color, email, telegram}));
+      dispatch(createTask({ taskItems, category, color, email, telegram }));
+      navigate('/category');
     }
-    setError("")
+
+    if (!hasError) {
+      setError(""); // Сбросить ошибку, если она не существует
+    }
   }, [dispatch, taskItems, category, color, email, telegram]);
 
+
+  const handleCancel = () => {
+    navigate('/dashboard');
+  };
 
   const handleCategoreisList = useCallback((title, index) => {
     setCategoryIndex(index);
     setCategory(title, index);
   }, []);
+
   const handleAddCategory = useCallback((title, index) => {
     setCategoryList((prev) => [
       ...prev,
@@ -60,14 +80,16 @@ const Tasks = () => {
     ]);
     setCategoryInput("");
   }, []);
+
   const handleColorList = useCallback((color, index) => {
     setColorIndex(index);
     setColor(color);
   }, []);
-  const [taskDateValid, setTaskDateValid] = useState('');
+
   const handleDateChange = (ev) => {
     const selectedDate = new Date(ev.target.value);
     const currentDate = new Date();
+    setTaskDateValid(ev.target.value);
 
     if (selectedDate < currentDate) {
       alert('Please select a future date.');
@@ -75,25 +97,36 @@ const Tasks = () => {
       setTaskDateValid(ev.target.value);
     }
   };
-  const handleAddTask = useCallback(() => {
-    if (taskInput.trim() !== '') {
-      if (!taskItems.some(item => item.text === taskInput)) {
-        setTaskItems(prevTaskItems => [
-          ...prevTaskItems,
-          {
-            id: Date.now(),
-            text: taskInput,
-            datetime: taskDateValid,
-          }
-        ]);
-        setTaskInput('');
-      } else {
-        console.log("Task already exists");
-      }
+
+  const handleAddTask = () => {
+    // Проверяем, заполнены ли оба поля
+    if (taskInput.trim() === '' && taskDateValid === '') {
+
+      setTaskInputError('Please fill out this field.');
+      setTaskDateError('Please fill out this field.');
+    } else if (taskInput.trim() === '') {
+      setTaskInputError('Please fill out this field.');
+      setTaskDateError(''); // Сбрасываем ошибку для даты
+    } else if (taskDateValid === '') {
+      setTaskDateError('Please fill out this field.');
+      setTaskInputError(''); // Сбрасываем ошибку для текста
+    } else {
+      setTaskItems(prevTaskItems => [
+                ...prevTaskItems,
+                {
+                  id: Date.now(),
+                  text: taskInput,
+                  datetime: taskDateValid,
+                }
+              ]);
+      setTaskInput('');
+      setTaskDateValid('');
+      setTaskInputError('');
+      setTaskDateError('');
     }
-    setTaskInput("");
-    setTaskDateValid("");
-  }, [taskInput, taskItems, taskDateValid]);
+  };
+
+
   const handleDelete = useCallback((id) => {
     setTaskItems((prevTaskItems) =>
       prevTaskItems.filter((item) => item.id !== id)
@@ -126,86 +159,116 @@ const Tasks = () => {
 
               <div className="categoreis">
                 <div className="category-block">
-                  <div><input className='task_input'
-                    value={categoryInput}
-                              onChange={(ev) => setCategoryInput(ev.target.value)} type="text"
-                              placeholder="Add a category title"/>
-                    <span onClick={() => handleAddCategory(categoryInput)}
-                          style={{width: "max-content", height: 10, background: "yellow", cursor: "pointer"}}>Add</span>
+                  <div className='task_add_category'>
+                    <input
+                      className='task_input'
+                      value={categoryInput}
+                      onChange={(ev) => {
+                        setCategoryInput(ev.target.value);
+                        setShowInstruction(false); // Скрыть инструкцию при изменении ввода
+                      }}
+                      type="text"
+                      placeholder="Add a category title"
+                    />
+                    {showInstruction && <p>Please enter a category.</p>}
+                    <span
+                      className='hvr-radial-out'
+                      onClick={() => {
+                        if (categoryInput.trim() !== '') {
+                          handleAddCategory(categoryInput);
+                          setCategoryInput('');
+                        } else {
+                          setShowInstruction(true);
+                        }
+                      }}
+                      disabled={categoryInput.trim() === ''}
+                    >Add Category</span>
                   </div>
-                  <br/><br/>
+
                   <div className='task_category_btn'>
                     {categoryList.map((item, index) => (
-                      <span className={index === categoryIndex ? "cat-active" : ""}
+                      <span className={index === categoryIndex ? "cat-active" : 'hvr-sweep-to-right'}
                             onClick={(() => handleCategoreisList(item.title, index))}
-                            style={{border: "1px solid red", cursor: "pointer"}} key={item.id}>
-                      {item.title}
+                            key={item.id}> <p>+</p>
+                        {item.title}
                     </span>
                     ))}
                     <p style={{color: "red"}}>{error === "Error category" ? error : null}</p>
                   </div>
-                  <br/>
-                  <br/>
-                  <div className="task_form_item2_title">
+                  <hr/>
+                  <div className="task_color">
+                  <div className="task_title_color">
                     <img src={palet} alt=""/>
                     <h4>Color</h4>
 
                   </div>
 
-                  <div style={{display: "flex"}}>
+                  <div className='task_color_btn'>
                     {categoryColors.map((item, index) => (
                       <span
                         key={index}
                         className={index === colorIndex ? "color-active" : ""}
                         onClick={(() => handleColorList(item, index))}
-                        style={{background: item, width: 40, height: 40, display: "block"}}></span>
+                        style={{background: item}}></span>
                     ))}
                   </div>
                   <p style={{color: "red"}}>{error === "Error color" ? error : null}</p>
-                  <br/>
+
+                </div>
+
+
                   <div className='task_notes'>
-                    <input className='task_input'
-                           placeholder='Notes'
+                    <input
+                      className='task_input'
+                      placeholder='Notes'
                       value={taskInput}
                       type="text"
-                      onChange={(ev) => setTaskInput(ev.target.value)}
-                           ></input>
-                    <input className='task_input_clock'
+                      onChange={(ev) => {
+                        setTaskInput(ev.target.value);
+                        setTaskInputError('');
+                      }}
+                    />
+                    {taskInputError && <p style={{ color: 'red' }}>{taskInputError}</p>}
+                    <input
+                      className='task_input_clock'
                       value={taskDateValid}
-                      type="datetime-local" onChange={(ev) => handleDateChange(ev)}/>
+                      type="datetime-local"
+                      onChange={handleDateChange}
+                    />
+                    {taskDateError && <p style={{ color: 'red' }}>{taskDateError}</p>}
+                    <span
+                      className='hvr-radial-out'
+                      onClick={handleAddTask}
+                    >Add </span>
                   </div>
-                  <span onClick={handleAddTask}
-                        style={{width: "max-content", height: 10, background: "yellow", cursor: "pointer"}}>Add</span>
-                  <br/>
-                  <br/>
-                  <ol>
+
+                  <ol className='task_list'>
                     {taskItems.map((item, index) => (
                       <React.Fragment key={index}>
                         <li>{item.text} {moment(item.datetime).format('LLLL')} {
-                          <span onClick={() => handleDelete(item.id)}
-                                style={{
-                                  width: "max-content",
-                                  height: 10,
-                                  background: "red",
-                                  cursor: "pointer"
-                                }}>Delete</span>}</li>
+                          <span  className='hvr-radial-out'
+
+                            onClick={() => handleDelete(item.id)}
+                               >Delete</span>}</li>
+                        <hr/>
                       </React.Fragment>
                     ))}
                   </ol>
-                  <br/>
-                  <br/>
+
                   <div>
                     <p style={{color: "red"}}>{error === "Error item" ? error : null}</p>
-                    <input className='task_input' onChange={(ev) => setEmail(ev.target.value)} type="email" placeholder="email"/>
-                    <input className='task_input' onChange={(ev) => setTelegram(ev.target.value)} type="text" placeholder="telegram"/>
+                    <input className='task_input' onChange={(ev) => setEmail(ev.target.value)} type="email"
+                           placeholder="email"/>
+                    <input className='task_input' onChange={(ev) => setTelegram(ev.target.value)} type="text"
+                           placeholder="telegram"/>
                   </div>
                 </div>
               </div>
-              <br/>
-              <br/>
-              <br/>
-              <button type={"submit"}>Save</button>
-              <span>Cecle</span>
+
+              <div className="task_button">
+                <button type='submit'>Save</button>
+                <span onClick={handleCancel}>Cancel</span>
+              </div>
             </form>
           </div>
 
