@@ -5,20 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function Wrapper(props) {
-  // const dispatch = useDispatch();
-  // const token = useSelector(state => state.users.token);
-  //
-  // useEffect(() => {
-  //   if (token) {
-  //     dispatch(socketInit(token))
-  //   }
-  // }, [token]);
-  //
-  //
-  // if (!token) {
-  //   window.location.href = '/'
-  //   return null
-  // }
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.users.token);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(socketInit(token))
+    }
+  }, [token]);
+
+
+  if (!token) {
+    window.location.href = '/'
+    return null
+  }
 
 
 

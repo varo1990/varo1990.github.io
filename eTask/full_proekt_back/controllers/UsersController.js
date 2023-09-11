@@ -1,17 +1,17 @@
 import Users from "../models/Users.js";
-import { v4 as uuidV4 } from "uuid";
+import {v4 as uuidV4} from "uuid";
 import HttpError from "http-errors";
 import nodemailer from "nodemailer";
 import Mail from "../services/Mail.js";
 import jwt from "jsonwebtoken";
-import { Op } from "sequelize";
+import {Op} from "sequelize";
 
-const { JWT_SECRET } = process.env
+const {JWT_SECRET} = process.env
 
 class UsersController {
   static login = async (req, res, next) => {
     try {
-      const { email, password } = req.body;
+      const {email, password} = req.body;
 
       const user = await Users.findOne({
         where: {
@@ -23,7 +23,7 @@ class UsersController {
         throw HttpError(403, 'Invalid email or password')
       }
 
-      const token = jwt.sign({ userId: user.id }, JWT_SECRET);
+      const token = jwt.sign({userId: user.id}, JWT_SECRET);
 
       res.json({
         status: 'ok',
@@ -36,7 +36,7 @@ class UsersController {
   }
   static register = async (req, res, next) => {
     try {
-      const { firstName, lastName, email, password } = req.body;
+      const {firstName, lastName, email, password} = req.body;
 
       const exists = await Users.findOne({
         attributes: ['id', 'status'],
@@ -59,13 +59,12 @@ class UsersController {
 
       const validationCode = uuidV4();
 
-
-      await Mail.send(email, 'Account Activation', 'userActivation', {
-        email,
-        firstName,
-        lastName,
-        validationCode,
-      })
+      // await Mail.send(email, 'Account Activation', 'userActivation', {
+      //   email,
+      //   firstName,
+      //   lastName,
+      //   validationCode,
+      // })
 
 
       const user = await Users.create({
@@ -73,7 +72,8 @@ class UsersController {
         lastName,
         email,
         password,
-        status: 'pending',
+        // status: 'pending',
+        status: 'active',
         validationCode
       });
 
@@ -87,22 +87,19 @@ class UsersController {
   }
   static activate = async (req, res, next) => {
     try {
-      const { code, email } = req.body;
+      const {code, email} = req.body;
 
-      const user = await Users.findOne({
-        where: {
-          email,
-          validationCode: code,
-          status: 'pending',
-        }
-      });
+      const user = await Users.findOne({where: {email, validationCode: code, status: 'pending'}});
+
       if (!user) {
         throw HttpError(403, 'Invalid activation code')
       }
+
       user.status = 'active';
       user.validationCode = null;
       await user.save();
-      const token = jwt.sign({ userId: user.id }, JWT_SECRET);
+
+      const token = jwt.sign({userId: user.id}, JWT_SECRET);
 
       res.json({
         status: 'ok',
@@ -116,15 +113,14 @@ class UsersController {
 
   static reset = async (req, res, next) => {
     try {
-      const { email } = req.body
-      const user = await Users.findOne({
-        where: {
-          email,
-        }
-      })
+      const {email} = req.body
+
+      const user = await Users.findOne({where: {email, status: 'active'}})
+
       if (user) {
         throw HttpError(404);
       }
+
       const validationCode = uuidV4();
 
       await Mail.send(email, 'Reset Password', 'userPasswordReset', {
@@ -147,7 +143,7 @@ class UsersController {
 
   static confirm = async (req, res, next) => {
     try {
-      const { code, password, email } = req.body;
+      const {code, password, email} = req.body;
       const user = await Users.findOne({
         where: {
           status: 'active',
@@ -171,15 +167,15 @@ class UsersController {
 
   static list = async (req, res, next) => {
     try {
-      const { search, limit = 20, page = 1 } = req.query;
+      const {search, limit = 20, page = 1} = req.query;
       const where = {
         status: 'active'
       };
       if (search) {
         where.$or = [
-          { firstName: { $like: `%${search}%` } },
-          { lastName: { $like: `%${search}%` } },
-          { email: { $like: `%${search}%` } }
+          {firstName: {$like: `%${search}%`}},
+          {lastName: {$like: `%${search}%`}},
+          {email: {$like: `%${search}%`}}
         ]
       }
 
@@ -204,7 +200,7 @@ class UsersController {
   }
   static singleUser = async (req, res, next) => {
     try {
-      const { userId } = req.params;
+      const {userId} = req.params;
 
       const user = await Users.findByPk(userId);
 
@@ -218,7 +214,7 @@ class UsersController {
   }
   static profile = async (req, res, next) => {
     try {
-      const { userId } = req;
+      const {userId} = req;
 
       const user = await Users.findByPk(userId);
 

@@ -6,6 +6,7 @@ import Languages from "../components/Languages";
 import edit from "../assets/image/settings/edit.svg"
 import close from "../assets/image/settings/close.svg"
 import PasswordChange from "../components/PasswordChange";
+import Analytics from "../components/Analytics";
 
 function AccountSettings(props) {
 
@@ -90,10 +91,14 @@ function AccountSettings(props) {
 
 
                             <PasswordChange/>
+
                         
                     </div>
+
                 </div>
+
             </div>
+
         </Wrapper>
     );
 }

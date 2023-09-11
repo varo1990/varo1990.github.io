@@ -12,6 +12,10 @@ class Api {
     return api.post('/users/login', {email, password})
   }
 
+  static register(data) {
+    return api.post('/users/register', data)
+  }
+
   static createTask(payload) {
     return api.post("/create-task", {payload})
   }

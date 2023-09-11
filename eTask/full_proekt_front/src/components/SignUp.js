@@ -10,6 +10,8 @@ import WrapperSignUp from "./WrapperSignUp";
 
 function SignUp(props) {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
+
     const [error, setError] = useState({})
     const [formData, setFormData] = useState({
         firstName: '',
@@ -19,95 +21,91 @@ function SignUp(props) {
     })
 
     const handleChange = useCallback((key) => (ev) => {
-        setError({ ...error, [key]: undefined })
-        setFormData({ ...formData, [key]: ev.target.value })
+        setError({...error, [key]: undefined})
+        setFormData({...formData, [key]: ev.target.value})
     }, [formData, error]);
 
     const handleSubmit = useCallback(async (ev) => {
         ev.preventDefault();
-        const { payload } = await dispatch(registerRequest(formData))
-        //console.log(payload)
-        if (payload.status === 'error') {
-            setError(payload.errors)
-        } else {
 
+        const {payload} = await dispatch(registerRequest(formData))
+
+        if (payload?.status === 'error') {
+            return setError(payload.errors)
         }
+
+        return navigate('/login')
+
     }, [formData])
-
-
-
-
-
-
-    const navigate = useNavigate()
-
 
     const handleHome = useCallback(() => {
         navigate('/home')
     }, [navigate])
 
     return (
-        <WrapperSignUp >
-            <div className="signUp">
-            <Helmet>
-                <title>Signup</title>
-            </Helmet>
-            <header className="header">
-                <nav className="nav">
-                    <img src={logo} alt="logo"/>
-                    <a onClick={handleHome}>
-                        <img src={home} alt="home"/>
-                            <p>Home</p>
-                    </a>
-                </nav>
-            </header>
+      <WrapperSignUp>
+          <div className="signUp">
+              <Helmet>
+                  <title>Signup</title>
+              </Helmet>
+              <header className="header">
+                  <nav className="nav">
+                      <img src={logo} alt="logo"/>
+                      <a onClick={handleHome}>
+                          <img src={home} alt="home"/>
+                          <p>Home</p>
+                      </a>
+                  </nav>
+              </header>
 
-            <div className="signUp_container">
-                <div className="signUp_content">
-                    <form onSubmit={handleSubmit} className="signUp__form" method="post">
-                        <h1>Sign up</h1>
-                        <div className="signUp_input_name">
-                            <input type="text"
-                                   name="firstname"
-                                   placeholder="First name"
-                                   value={formData.firstName}
-                                   onChange={handleChange("firstName")}
-                                   required />
-                            <input type="text"
-                                   name="lastname"
-                                   id="username"
-                                   placeholder="Last name" onChange={handleChange("lastName")}
-                                   value={formData.lastName}
-                                   required
-                            />
-                        </div>
-                        <div><input className="input"
-                                    id="email"
-                                    placeholder="Email"
-                                    onChange={handleChange('email')}
-                                    value={formData.email}
-                                    required/>
-                            {error.email ? <p className="register_error">{error.email}</p> : null}
-                        </div>
-                        <div><input className="input"
-                                    id="password"
-                                    placeholder="Password"
-                                    onChange={handleChange("password")}
-                                    value={formData.password}
-                                    required/></div>
-                        <div className="signUp_label">
-                            <input type="checkbox" className="signUp_checkbox" id="scales" name="remember"/>
-                            <label htmlFor="scales">Remember me</label>
-                        </div>
-                        <button type="submit" className="signUp_btn">Sign up</button>
-                    </form>
-                    <img src={sign_up} alt="sign-up"/>
-                </div>
-            </div>
+              <div className="signUp_container">
+                  <div className="signUp_content">
+                      <form onSubmit={handleSubmit} className="signUp__form" method="post">
+                          <h1>Sign up</h1>
+                          <div className="signUp_input_name">
+                              <input type="text"
+                                     name="firstname"
+                                     placeholder="First name"
+                                     value={formData.firstName}
+                                     onChange={handleChange("firstName")}
+                                     required/>
+                              <input type="text"
+                                     name="lastname"
+                                     id="username"
+                                     placeholder="Last name" onChange={handleChange("lastName")}
+                                     value={formData.lastName}
+                                     required
+                              />
+                          </div>
+                          <div><input className="input"
+                                      id="email"
+                                      type="email"
+                                      placeholder="Email"
+                                      onChange={handleChange('email')}
+                                      value={formData.email}
+                                      required/>
+                              {error.email ? <p className="register_error">{error.email}</p> : null}
+                          </div>
+                          <div><input className="input"
+                                      id="password"
+                                      type="password"
+                                      placeholder="Password"
+                                      onChange={handleChange("password")}
+                                      value={formData.password}
+                                      required/></div>
+                          <div className="signUp_label">
+                              <input type="checkbox" className="signUp_checkbox" id="scales" name="remember"/>
+                              <label htmlFor="scales">Remember me</label>
+                          </div>
+                          <button type="submit" className="signUp_btn">Sign up</button>
+                      </form>
+                      <img src={sign_up} alt="sign-up"/>
+                  </div>
+              </div>
 
 
-            </div>
-        </WrapperSignUp>
+          </div>
+      </WrapperSignUp>
     );
 }
 
