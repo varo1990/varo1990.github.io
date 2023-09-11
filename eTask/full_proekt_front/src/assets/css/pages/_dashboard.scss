@@ -254,10 +254,19 @@
     }
   }
   &_in_progress_item1{
-    border: 1px solid;
+    //border: 1px solid grey;
     width: 1044px;
-    height: 537.024px;
+    /* height: 537.024px; */
     margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background: var(--neutral-colors-white, #FFF);
+
+    box-shadow: 0 2px 6px 0 rgba(13, 10, 44, 0.08);
+    background: white;
   }
 
 &_edit{
