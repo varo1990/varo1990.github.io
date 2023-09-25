@@ -28,6 +28,7 @@ function Login(props) {
             return setError(payload.message)
         }
 
+
         return navigate('/dashboard')
 
     }, [formData])

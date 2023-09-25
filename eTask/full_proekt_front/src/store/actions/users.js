@@ -33,9 +33,9 @@ export const activateRequest = createAsyncThunk('/users/activateRequest', async 
   }
 })
 
-export const getFriendsListRequest = createAsyncThunk("users/getFriendsListRequest", async (payload, thunkAPI) => {
-  const { data } = await Api.friendList(payload)
-  return data;
-})
+// export const getFriendsListRequest = createAsyncThunk("users/getFriendsListRequest", async (payload, thunkAPI) => {
+//   const { data } = await Api.friendList(payload)
+//   return data;
+// })
 
 export const logOut = createAction('users/logOut');

@@ -301,7 +301,6 @@
       font-weight: 500;
       line-height: 20px; /* 142.857% */
       letter-spacing: 0.1px;
-      border: none;
       cursor: pointer;
       vertical-align: middle;
       transform: perspective(1px) translateZ(0);
@@ -310,6 +309,8 @@
       transition-property: color;
       transition-duration: 0.3s;
       background: red !important;
+      border: 2px solid #0c110c;
+
     }
   }
 

@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import drink_local from "../assets/image/dasboard/local_drink.svg";
 import palette from "../assets/image/dasboard/palette.svg";
 import clock from "../assets/image/dasboard/clock.svg";
-import flag_small from "../assets/image/dasboard/flag_small.svg";
 import Edit from "../components/Edit";
 
 import {categoies, myTask} from "../data/DataTask";
@@ -12,7 +10,7 @@ const Categories = (props) => {
   return (
     <div className="categories">
       <div className="categories_container" style={{
-        borderColor:myTask.color
+        borderColor:myTask.color, borderRadius:"20px"
       }}>
 
         <div className="categories_edit">

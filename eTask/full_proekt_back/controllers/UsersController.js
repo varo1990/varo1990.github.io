@@ -173,9 +173,9 @@ class UsersController {
       };
       if (search) {
         where.$or = [
-          {firstName: {$like: `%${search}%`}},
-          {lastName: {$like: `%${search}%`}},
-          {email: {$like: `%${search}%`}}
+          {firstName: {[Op.like]: `%${search}%`}},
+          {lastName: { [Op.like]: `%${search}%`}},
+          {email: {[Op.like]: `%${search}%`}}
         ]
       }
 

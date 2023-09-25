@@ -34,10 +34,10 @@ export default createReducer(initialState, (builder) => {
       state.token = token
       state.profile = users
     })
-    .addCase(getFriendsListRequest.fulfilled, (state, action) => {
-      const { users } = action.payload;
-      state.friendsList = users
-    })
+    // .addCase(getFriendsListRequest.fulfilled, (state, action) => {
+    //   const { users } = action.payload;
+    //   state.friendsList = users
+    // })
     .addCase(socketOnline, (state, action) => {
       const { userId } = action.payload;
       state.friendsList = state.friendsList.map(u => {
