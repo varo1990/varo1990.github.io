@@ -1,0 +1,145 @@
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+
+
+  &_search {
+    width: 700px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: #576570;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  &_filter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    width: 400px;
+    margin: 21px auto;
+    font-size: 18px;
+  }
+
+
+  &_filter select {
+    height: 40px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+
+  &_pagination {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  &_settings {
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+    label {
+      margin-bottom: 5px;
+    }
+  }
+
+  &_search input {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
+
+  }
+
+  &_search button {
+    width: 110px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+
+    &:hover {
+      background-color: #e7c5c5;
+
+    }
+
+
+  }
+
+  &_news {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 50px;
+    justify-content: space-around;
+  }
+
+  &_news_items {
+    width: calc(100% / 5 - 5px);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 10px;
+    height: 450px;
+
+
+  }
+
+  &_articls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & p {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      text-align: left;
+    }
+
+
+
+    span {
+      margin-bottom: 20px;
+    }
+  }
+
+  &_btn_details {
+    margin-top: 20px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #eeee6f;
+    }
+  }
+
+  .check_svg {
+    width: 20px;
+  }
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+  }
+}
+

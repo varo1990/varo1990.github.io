@@ -12,7 +12,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path='/news' component={News} />
-        <Route path='/news/:newsId' component={NewsDetails} />
+        <Route path="/news/:newsId" element={<NewsDetails />} />
 
 
         <Route path="/not-found" element={<Notfound/>}/>

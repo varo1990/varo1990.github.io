@@ -1,0 +1,13 @@
+.home{
+  &_news_items {
+    width: calc(100% / 4 - 5px);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 10px;
+    height: 450px;
+
+
+  }
+}

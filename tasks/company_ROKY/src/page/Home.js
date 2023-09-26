@@ -8,7 +8,7 @@ import {Link, useNavigate} from 'react-router-dom';
 
 
 function Home(props) {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchValue, setSearchValue] = useState('');
   const [selectedFilter, setSelectedFilter] = useState('');
   const [perPage, setPerPage] = useState(20);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,7 +28,7 @@ function Home(props) {
 
   useEffect(() => {
     const params = {
-      q: searchTerm,
+      q: searchValue,
       page: currentPage,
       'page-size': perPage,
       tags: selectedFilter,
@@ -42,10 +42,10 @@ function Home(props) {
     }
 
     dispatch(getNewsListSearch({value: params}));
-  }, [dispatch, searchTerm, selectedFilter, currentPage, perPage, sortBy]);
+  }, [dispatch, searchValue, selectedFilter, currentPage, perPage, sortBy]);
 
   const handleChange = (ev) => {
-    setSearchTerm(ev.target.value);
+    setSearchValue(ev.target.value);
 
   };
 
@@ -55,7 +55,7 @@ function Home(props) {
 
   const handleSearch = () => {
     const params = {
-      q: searchTerm,
+      q: searchValue,
       page: 1,
       'page-size': perPage,
       tags: selectedFilter,
@@ -67,7 +67,7 @@ function Home(props) {
 
     dispatch(getNewsListSearch({ value: params })).then(() => {
       setCurrentPage(1);
-      setSearchTerm('');
+      setSearchValue('');
 
     });
 
@@ -98,9 +98,11 @@ function Home(props) {
     setSortBy(ev.target.value);
   };
 
-  const handleNews=(id)=>{
-    navigate(`/news/${id}`);
-  }
+
+
+  const handleNews = (apiUrl) => {
+    navigate(`/news/${apiUrl}`);
+  };
 
   return (
     <div className='home'>
@@ -109,7 +111,7 @@ function Home(props) {
           <input
             type="text"
             onChange={handleChange}
-            value={searchTerm}
+            value={searchValue}
             placeholder='search...'
           />
           <button onClick={handleSearch}>Find</button>
@@ -155,10 +157,13 @@ function Home(props) {
             </div>
 
 
-
-            <button className='home_btn_details' onClick={()=>handleNews(i.id)}>Details
-              <Right className="check_svg"/>
+            <button className="home_btn_details" onClick={() => handleNews(i.apiUrl)}>
+              Details <Right className="check_svg" />
             </button>
+
+            {/*<button className='home_btn_details' onClick={()=>handleNews(i.id)}>Details*/}
+            {/*  <Right className="check_svg"/>*/}
+            {/*</button>*/}
             {index === newsListSearch.length - 1 && (
               <div style={{height: '20px'}}></div>
             )}

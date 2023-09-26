@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-function NewsDetails({ news }) {
+function NewsDetails() {
+  const { newsId } = useParams(); // Получаем параметр newsId из URL
+  const [news, setNews] = useState(null);
+
+  useEffect(() => {
+
+    fetch(`https://content.guardianapis.com/news/${newsId}`)
+      .then((response) => response.json())
+      .then((data) => setNews(data))
+      .catch((error) => console.error(error));
+
+    const dummyNewsData = {
+      title: 'News Title',
+      content: 'This is the content of the news article.',
+    };
+    setNews(dummyNewsData);
+  }, [newsId]);
+
+  if (!news) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className='news-details'>
-      <h2>{news.webTitle}</h2>
-      <p>Date: {news.webPublicationDate}</p>
-      <p>{news.fields.starRating} stars</p>
-      <p>{news.fields.shortUrl}</p>
+    <div>
+      <h2>{news.title}</h2>
+      <p>{news.content}</p>
     </div>
   );
 }
