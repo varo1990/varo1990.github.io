@@ -63,9 +63,9 @@ function Home(props) {
       orderBy: sortBy,
 
 
-  };
+    };
 
-    dispatch(getNewsListSearch({ value: params })).then(() => {
+    dispatch(getNewsListSearch({value: params})).then(() => {
       setCurrentPage(1);
       setSearchValue('');
 
@@ -99,9 +99,8 @@ function Home(props) {
   };
 
 
-
-  const handleNews = (apiUrl) => {
-    navigate(`/news/${apiUrl}`);
+  const handleNews = (id) => {
+    navigate(`/news-details`, {state: {id: id}});
   };
 
   return (
@@ -157,13 +156,11 @@ function Home(props) {
             </div>
 
 
-            <button className="home_btn_details" onClick={() => handleNews(i.apiUrl)}>
-              Details <Right className="check_svg" />
+            <button className="home_btn_details" onClick={() => handleNews(i.id)}>
+              Details <Right className="check_svg"/>
             </button>
 
-            {/*<button className='home_btn_details' onClick={()=>handleNews(i.id)}>Details*/}
-            {/*  <Right className="check_svg"/>*/}
-            {/*</button>*/}
+
             {index === newsListSearch.length - 1 && (
               <div style={{height: '20px'}}></div>
             )}
@@ -176,7 +173,6 @@ function Home(props) {
 }
 
 export default Home;
-
 
 
 

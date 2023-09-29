@@ -3,7 +3,6 @@ import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import Home from "./page/Home";
 import Notfound from "./page/Notfound";
 import NewsDetails from "./page/NewsDetails";
-import News from "./page/News";
 
 
 function App(props) {
@@ -11,8 +10,8 @@ function App(props) {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path='/news' component={News} />
-        <Route path="/news/:newsId" element={<NewsDetails />} />
+
+        <Route path="/news-details" element={<NewsDetails />} />
 
 
         <Route path="/not-found" element={<Notfound/>}/>

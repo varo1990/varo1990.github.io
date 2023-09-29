@@ -1,34 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, {useCallback, useEffect, useState} from 'react';
+import {useParams, useLocation, useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {getNews} from "../store/actions/details";
+import moment from "moment";
 
 function NewsDetails() {
-  const { newsId } = useParams(); // Получаем параметр newsId из URL
-  const [news, setNews] = useState(null);
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  const news = useSelector((store) => store.details.news);
+  console.log(news, 22222222222)
+  const {newsId} = useParams();
+  const {id} = location.state;
+  const params =
+    {
+      'show-fields': 'all',
+    };
 
   useEffect(() => {
 
-    fetch(`https://content.guardianapis.com/news/${newsId}`)
-      .then((response) => response.json())
-      .then((data) => setNews(data))
-      .catch((error) => console.error(error));
+    dispatch(getNews({id, params}))
+  }, []);
 
-    const dummyNewsData = {
-      title: 'News Title',
-      content: 'This is the content of the news article.',
-    };
-    setNews(dummyNewsData);
-  }, [newsId]);
 
-  if (!news) {
-    return <div>Loading...</div>;
-  }
+  const handleClick = useCallback(()=>{
+    navigate('/')
+  },[navigate])
 
   return (
-    <div>
-      <h2>{news.title}</h2>
-      <p>{news.content}</p>
+    <div className='news'>
+      <div className='news_header'>
+        <div className='news_header_title'>
+          <h2>{news?.fields?.headline}</h2>
+        </div>
+        <div className="news_header_date">
+        <span>{moment(news?.fields?.lastModified).format('DD  MMMM YYYY, hh:mm:ss A')}</span>
+          <button onClick={handleClick}>read on Guardian</button>
+      </div>
+      </div>
+      <div className="news_content">
+        <img src={news?.fields?.thumbnail} alt=""/>
+
+      <div className="news_title">
+      <h2>{news?.fields?.byline}</h2>
+
+
+
+      <p>{news?.fields?.bodyText}</p>
+      <h4>{news?.fields?.trailText}</h4>
+
     </div>
-  );
+
+
+    </div>
+    </div>
+
+)
+  ;
 }
 
 export default NewsDetails;

@@ -13,6 +13,10 @@ class Api {
       params["api-key"] = key
       return api.get('/search',  { params: params }  )
     }
+  static getNews(id,params) {
+    params["api-key"] = key
+    return api.get(`/${id}`,  { params: params }  )
+  }
 
 
 
