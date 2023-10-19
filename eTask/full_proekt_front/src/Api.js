@@ -16,9 +16,18 @@ class Api {
     return api.post('/users/register', data)
   }
 
+
   static createTask(payload) {
-    return api.post("/create-task", {payload})
+    return api.post("/tasks", payload)
   }
+
+  static Task(id ){
+    return api.get(`/tasks/user/${id}`)
+  }
+
+
+
+
 }
 
 export default Api

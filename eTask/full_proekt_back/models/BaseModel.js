@@ -1,5 +1,5 @@
 import {Model} from "sequelize";
-import Joi from "joi";
+// import Joi from "joi";
 
 class BaseModel extends Model {
     /**

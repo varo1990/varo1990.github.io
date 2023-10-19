@@ -3,34 +3,7 @@ import sequelize from "../services/sequelize.js";
 import md5 from "md5";
 
 const { PASSWORD_SECRET } = process.env;
-import { DataTypes, Model } from "sequelize";
-import sequelize from "../services/sequelize.js";
-import Users from "./Users.js";
 
-class Task extends Model {
-
-}
-
-// Task.init({
-//   id: {
-//     type: DataTypes.BIGINT.UNSIGNED,
-//     autoIncrement: true,
-//     primaryKey: true,
-//     allowNull: false
-//   },
-//  //
-//
-//
-//   //
-// }, {
-//   sequelize,
-//   modelName: 'task',
-//   tableName: 'task',
-// })
-
-
-
-export default Task;
 class Users extends Model {
 
   static passwordHash = (pass) => md5(md5(pass + PASSWORD_SECRET))
@@ -73,14 +46,6 @@ Users.init({
   avatar: {
     type: DataTypes.STRING,
     allowNull: true,
-    get() {
-      const avatar = this.getDataValue('avatar');
-      if (avatar) {
-        return avatar;
-      }
-      const email = this.getDataValue('email').toLowerCase();
-      return `https://www.gravatar.com/avatar/${md5(email)}?d=wavatar`
-    }
   },
   lastVisit: {
     type: DataTypes.DATE,
@@ -89,9 +54,7 @@ Users.init({
   status: {
     type: DataTypes.ENUM('active', 'pending', 'block'),
     allowNull: false,
-  },
-  isOnline: {
-    type: DataTypes.BOOLEAN,
+    // default: 'pending'
   },
   validationCode: {
     type: DataTypes.STRING,

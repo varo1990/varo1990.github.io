@@ -7,96 +7,85 @@ import {Helmet} from "react-helmet";
 import {useDispatch, useSelector} from "react-redux";
 import {loginRequest} from "../store/actions/users";
 import WrapperSignUp from "./WrapperSignUp";
+import Header from "./Header";
 
 function Login(props) {
-    const dispatch = useDispatch();
-    const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
-    const [error, setError] = useState('')
-    const [formData, setFormData] = useState({email: '', password: ''})
+  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({email: '', password: ''})
 
-    const handleChange = useCallback((key) => (ev) => {
-        setError('')
-        setFormData({...formData, [key]: ev.target.value})
-    }, [formData]);
+  const handleChange = useCallback((key) => (ev) => {
+    setError('')
+    setFormData({...formData, [key]: ev.target.value})
+  }, [formData]);
 
-    const handleSubmit = useCallback(async (ev) => {
-        ev.preventDefault();
-        const {payload} = await dispatch(loginRequest(formData))
+  const handleSubmit = useCallback(async (ev) => {
+    ev.preventDefault();
+    const {payload} = await dispatch(loginRequest(formData))
 
-        if (payload.status === 'error') {
-            return setError(payload.message)
-        }
-
-
-        return navigate('/dashboard')
-
-    }, [formData])
-
-    const handleHome = useCallback(() => {
-        navigate('/home')
-    }, [navigate])
-
-    const handleReset =
-      useCallback(() => {
-          navigate('/reset')
-      }, [navigate])
-
-    return (
-      <WrapperSignUp>
-          <div className="login">
+    if (payload.status === 'error') {
+      return setError(payload.message)
+    }
 
 
-              <Helmet>
-                  <title>Login</title>
-              </Helmet>
-              <header className="header">
-                  <nav className="nav">
-                      <img src={logo} alt="logo"/>
-                      <a onClick={handleHome}>
-                          <img src={home} alt="home"/>
-                          <p>Home</p>
-                      </a>
-                  </nav>
-              </header>
+    return navigate('/dashboard')
 
-              <div className="login_container">
-                  <div className="login_content">
+  }, [formData])
 
-                      <form onSubmit={handleSubmit} className="login__form">
-                          <h1>Login</h1>
 
-                          <div><input className="input"
-                                      type="email"
-                                      id="username"
-                                      placeholder="Email"
-                                      required
-                                      onChange={handleChange('email')}
-                                      value={formData.email}/></div>
-                          <div><input className="input" type="password"
-                                      id="password"
-                                      placeholder="Password"
-                                      required
-                                      onChange={handleChange('password')}
-                                      value={formData.password}/></div>
-                          <div className="login_label">
-                              <div className="login_label_content"><input type="checkbox" className="login_checkbox"
-                                                                          id="scales" name="remember"/>
-                                  <label htmlFor="scales">Remember me</label>
-                              </div>
-                              <div><a onClick={handleReset}>Forgot Password?</a></div>
+  const handleReset = useCallback(() => {
+    navigate('/reset')
+  }, [navigate])
 
-                          </div>
-                          <button type="submit" className="login_btn">Login</button>
-                          {error ? <p>{error}</p> : null}
-                      </form>
-                      <div><img src={login} alt="sign-up"/></div>
+  return (
+    <WrapperSignUp>
+      <div className="login">
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
 
-                  </div>
+
+        <Header/>
+        <div className="login_container">
+          <div className="login_content">
+
+            <form onSubmit={handleSubmit} className="login__form">
+              <h1>Login</h1>
+
+              <div><input className="input"
+                          type="email"
+                          id="username"
+                          placeholder="Email"
+                          required
+                          onChange={handleChange('email')}
+                          value={formData.email}/></div>
+              <div><input className="input" type="password"
+                          id="password"
+                          placeholder="Password"
+                          required
+                          onChange={handleChange('password')}
+                          value={formData.password}/></div>
+              <div className="login_label">
+                <div className="login_label_content"><input type="checkbox" className="login_checkbox"
+                                                            id="scales" name="remember"/>
+                  <label htmlFor="scales">Remember me</label>
+                </div>
+
+                <div><a onClick={handleReset}>Forgot Password?</a></div>
+
               </div>
+              <button type="submit" className="login_btn">Login</button>
+              {error ? <p>{error}</p> : null}
+            </form>
+            <div><img src={login} alt="sign-up"/></div>
+
           </div>
-      </WrapperSignUp>
-    );
+        </div>
+      </div>
+    </WrapperSignUp>
+  );
 }
 
 export default Login;

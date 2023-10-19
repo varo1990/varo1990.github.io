@@ -1,0 +1,19 @@
+POST /tasks HTTP/1.1
+Host: localhost:4000
+Content-Type: application/json
+Content-Length: 395
+
+{
+  "title": "test",
+  "color": "test",
+  "status": "ACTIVE",
+  "description": "test",
+  "userId": 1,
+  "categoryId": 20,
+  "email":  "test@mail.ru",
+  "telegram": "test",
+  "issueDueDate": "2023-10-18",
+  "startedAt": "2023-10-18",
+  "finishedAt": "2023-10-18",
+  "isActive": true
+}

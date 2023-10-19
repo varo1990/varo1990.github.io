@@ -1,12 +1,22 @@
 import {createAction, createAsyncThunk} from "@reduxjs/toolkit";
 import Api from "../../Api";
 
-export const createTask = createAsyncThunk("task/createTask", async (payload, {rejectWithValue}) => {
+export const createTask = createAsyncThunk("tasks/createTask", async (payload, thunkAPI) => {
+
+
   try {
-    console.log(payload, 1111110)
-    // const {data} = await Api.createTask(payload);
-    // return data;
-  } catch (error) {
-    return rejectWithValue(error);
+    const {data} = await Api.createTask( payload);
+    return data
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.response.data);
   }
 });
+
+
+export const getTaskRequest = createAsyncThunk('tasks/getTaskListRequest', async (id) => {
+
+  const {data} = await Api.Task(id)
+  return data
+
+
+})

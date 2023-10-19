@@ -5,7 +5,7 @@ function WrapperSignUp(props) {
   const token = useSelector(state => state.users.token);
 
   if (token) {
-    return <Navigate to="/" replace/>
+    return <Navigate to="/dashboard" replace/>
   }
   return (
     <>

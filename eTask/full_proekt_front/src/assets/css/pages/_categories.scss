@@ -1,5 +1,6 @@
 .categories {
   display: flex;
+  flex-direction: column;
 
   &_container {
     width: 900px;

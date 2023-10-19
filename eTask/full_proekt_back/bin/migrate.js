@@ -1,6 +1,6 @@
 import Users from "../models/Users.js";
 import Categories from "../models/Categories.js";
-import Tasks from "../models/Tasks.js";
+import Tasks from "../models/Task.js";
 
 
 async function main() {

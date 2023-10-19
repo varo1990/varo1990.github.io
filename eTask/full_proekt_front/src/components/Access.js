@@ -12,28 +12,17 @@ import img5 from "../assets/image/home/Group5.svg"
 import img6 from "../assets/image/home/Group6.svg"
 import img7 from "../assets/image/home/Group7.svg"
 import img8 from "../assets/image/home/Group8.svg"
+import Header from "./Header";
 
 function Access(props) {
-  const navigate = useNavigate()
 
 
-  const handleHome = useCallback(() => {
-    navigate('/home')
-  }, [navigate])
   return (
     <WrapperSignUp>
       <div className='access'>
 
 
-        <header className="header">
-          <nav className="nav">
-            <img src={logo} alt="logo"/>
-            <a onClick={handleHome}>
-              <img src={home} alt="home"/>
-              <p>Home</p>
-            </a>
-          </nav>
-        </header>
+        <Header/>
         <h2>Access to FAQs</h2>
 
 

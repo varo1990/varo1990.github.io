@@ -45,6 +45,7 @@ body {
 
 .menu {
   width: 200px;
+  min-height: 100vh;
   background: #3D3D3D;
   border: 1px solid;
   display: flex;
@@ -335,6 +336,25 @@ body {
     position: absolute;
     right: 14px;
     top: 7px; }
+
+.out__btn {
+  width: 120px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #dedae5;
+  padding: 0 26px;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  color: #ede0e3;
+  cursor: pointer;
+  background: #3d3d3d00; }
+  .out__btn:hover {
+    background: #299CAA;
+    animation: myAnim 1s ease 0s 1 normal forwards; }
 
 .home {
   width: 100%;
@@ -1299,7 +1319,7 @@ body {
       width: 71px;
       height: 70px;
       border-radius: 50px; }
-    .settings_user button {
+    .settings_user label {
       border: none;
       background: none;
       width: 18px;
@@ -1308,7 +1328,7 @@ body {
       position: absolute;
       bottom: 0;
       left: 62px; }
-      .settings_user button img {
+      .settings_user label img {
         width: 18px;
         height: 18px;
         object-fit: cover; }
@@ -1622,7 +1642,6 @@ body {
       line-height: 20px;
       /* 142.857% */
       letter-spacing: 0.1px;
-      border: none;
       cursor: pointer;
       vertical-align: middle;
       transform: perspective(1px) translateZ(0);
@@ -1630,7 +1649,8 @@ body {
       position: relative;
       transition-property: color;
       transition-duration: 0.3s;
-      background: red !important; }
+      background: red !important;
+      border: 2px solid #0c110c; }
   .task_color {
     display: flex;
     justify-content: space-between;
@@ -1741,7 +1761,8 @@ body {
   flex-direction: column; }
 
 .categories {
-  display: flex; }
+  display: flex;
+  flex-direction: column; }
   .categories_container {
     width: 900px;
     border: 5px solid var(--colors-purple, #AB68FF);

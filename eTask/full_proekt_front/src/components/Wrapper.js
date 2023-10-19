@@ -8,11 +8,11 @@ function Wrapper(props) {
   const dispatch = useDispatch();
   const token = useSelector(state => state.users.token);
 
-  useEffect(() => {
-    if (token) {
-      dispatch(socketInit(token))
-    }
-  }, [token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     dispatch(socketInit(token))
+  //   }
+  // }, [token]);
 
 
   if (!token) {

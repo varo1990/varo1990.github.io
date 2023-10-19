@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom";
 import Categories from "./Categories";
 import DashboardSlider from "../components/DashboardSlider";
 import Analytics from "../components/Analytics";
+import {Helmet} from "react-helmet";
+import LogOut from "../components/LogOut";
 
 function Dashboard(props) {
   const navigate = useNavigate()
@@ -17,11 +19,15 @@ function Dashboard(props) {
   }, [navigate]);
   return (
     <Wrapper className="wrapper">
+      <Helmet>
+        <title>Dashboard</title>
+      </Helmet>
 
       <div className="content">
         <div className="dashboard">
           <div className="dashboard_header">
             <div className="dashboard_header_content">
+
               <div className="dashboard_search">
                 <img src={search} alt=""/>
                 <input className="form-search" type="search" placeholder="Search" aria-label="Search"/>
@@ -47,7 +53,7 @@ function Dashboard(props) {
                 </button>
               </div>
             </div>
-            <DashboardSlider/>
+            {/*<DashboardSlider/>*/}
             <Categories/>
           </div>
 

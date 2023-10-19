@@ -5,8 +5,6 @@ import left from "../assets/image/task/left.svg";
 import see from "../assets/image/task/see.svg";
 import cat from "../assets/image/task/cat.png";
 import palet from "../assets/image/task/palette.png";
-
-
 import {categoies, categoryColors} from "../data/DataTask";
 import _ from "lodash";
 import moment from "moment";
@@ -35,8 +33,6 @@ const Tasks = () => {
   const [taskDateError, setTaskDateError] = useState('');
 
 
-
-
   const handleSubmit = useCallback((ev) => {
     ev.preventDefault();
     let hasError = false;
@@ -51,13 +47,36 @@ const Tasks = () => {
       setError("Error item");
       hasError = true;
     } else {
-      dispatch(createTask({ taskItems, category, color, email, telegram }));
+
+
+      console.log('{ taskItems, category, color, email, telegram }',
+        {taskItems, category, color, email, telegram})
+      console.log('taskInput', taskInput)
+      dispatch(createTask(
+        {
+          title: 'title',
+          status: 'active',
+          color,
+          description: taskInput,
+          userId: 10,
+          categoryId: 20,
+          email,
+          telegram,
+          issueDueDate: '2023-10-19',
+          startedAt: '2023-10-19',
+          finishedAt: '2023-10-19',
+          isDone: true,
+          isActive: true
+        }
+      ));
       navigate('/category');
     }
 
     if (!hasError) {
-      setError(""); // Сбросить ошибку, если она не существует
+      setError("");
     }
+
+
   }, [dispatch, taskItems, category, color, email, telegram]);
 
 
@@ -99,7 +118,6 @@ const Tasks = () => {
   };
 
   const handleAddTask = () => {
-    // Проверяем, заполнены ли оба поля
     if (taskInput.trim() === '' && taskDateValid === '') {
 
       setTaskInputError('Please fill out this field.');
@@ -112,14 +130,14 @@ const Tasks = () => {
       setTaskInputError(''); // Сбрасываем ошибку для текста
     } else {
       setTaskItems(prevTaskItems => [
-                ...prevTaskItems,
-                {
-                  id: Date.now(),
-                  text: taskInput,
-                  datetime: taskDateValid,
-                }
-              ]);
-      setTaskInput('');
+        ...prevTaskItems,
+        {
+          id: Date.now(),
+          text: taskInput,
+          datetime: taskDateValid,
+        }
+      ]);
+      // setTaskInput('');
       setTaskDateValid('');
       setTaskInputError('');
       setTaskDateError('');
@@ -197,24 +215,24 @@ const Tasks = () => {
                   </div>
                   <hr/>
                   <div className="task_color">
-                  <div className="task_title_color">
-                    <img src={palet} alt=""/>
-                    <h4>Color</h4>
+                    <div className="task_title_color">
+                      <img src={palet} alt=""/>
+                      <h4>Color</h4>
+
+                    </div>
+
+                    <div className='task_color_btn'>
+                      {categoryColors.map((item, index) => (
+                        <span
+                          key={index}
+                          className={index === colorIndex ? "color-active" : ""}
+                          onClick={(() => handleColorList(item, index))}
+                          style={{background: item}}></span>
+                      ))}
+                    </div>
+                    <p style={{color: "red"}}>{error === "Error color" ? error : null}</p>
 
                   </div>
-
-                  <div className='task_color_btn'>
-                    {categoryColors.map((item, index) => (
-                      <span
-                        key={index}
-                        className={index === colorIndex ? "color-active" : ""}
-                        onClick={(() => handleColorList(item, index))}
-                        style={{background: item}}></span>
-                    ))}
-                  </div>
-                  <p style={{color: "red"}}>{error === "Error color" ? error : null}</p>
-
-                </div>
 
 
                   <div className='task_notes'>
@@ -228,14 +246,14 @@ const Tasks = () => {
                         setTaskInputError('');
                       }}
                     />
-                    {taskInputError && <p style={{ color: 'red' }}>{taskInputError}</p>}
+                    {taskInputError && <p style={{color: 'red'}}>{taskInputError}</p>}
                     <input
                       className='task_input_clock'
                       value={taskDateValid}
                       type="datetime-local"
                       onChange={handleDateChange}
                     />
-                    {taskDateError && <p style={{ color: 'red' }}>{taskDateError}</p>}
+                    {taskDateError && <p style={{color: 'red'}}>{taskDateError}</p>}
                     <span
                       className='hvr-radial-out'
                       onClick={handleAddTask}
@@ -246,10 +264,10 @@ const Tasks = () => {
                     {taskItems.map((item, index) => (
                       <React.Fragment key={index}>
                         <li>{item.text} {moment(item.datetime).format('LLLL')} {
-                          <span  className='hvr-radial-out'
+                          <span className='hvr-radial-out'
 
-                            onClick={() => handleDelete(item.id)}
-                               >Delete</span>}</li>
+                                onClick={() => handleDelete(item.id)}
+                          >Delete</span>}</li>
                         <hr/>
                       </React.Fragment>
                     ))}

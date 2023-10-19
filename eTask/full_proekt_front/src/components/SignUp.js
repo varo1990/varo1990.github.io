@@ -7,6 +7,7 @@ import {Helmet} from "react-helmet";
 import {useDispatch} from "react-redux";
 import {registerRequest} from "../store/actions/users";
 import WrapperSignUp from "./WrapperSignUp";
+import Header from "./Header";
 
 function SignUp(props) {
     const dispatch = useDispatch();
@@ -38,9 +39,6 @@ function SignUp(props) {
 
     }, [formData])
 
-    const handleHome = useCallback(() => {
-        navigate('/home')
-    }, [navigate])
 
     return (
       <WrapperSignUp>
@@ -48,15 +46,7 @@ function SignUp(props) {
               <Helmet>
                   <title>Signup</title>
               </Helmet>
-              <header className="header">
-                  <nav className="nav">
-                      <img src={logo} alt="logo"/>
-                      <a onClick={handleHome}>
-                          <img src={home} alt="home"/>
-                          <p>Home</p>
-                      </a>
-                  </nav>
-              </header>
+             <Header/>
 
               <div className="signUp_container">
                   <div className="signUp_content">

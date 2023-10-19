@@ -1,22 +1,32 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { activateRequest, getFriendsListRequest, loginRequest, logOut, registerRequest } from "../actions/users";
-import { socketOffline, socketOnline } from "../actions/socket";
+import {
+  activateRequest,
+  getTaskListRequest,
+  getTaskRequest,
+  loginRequest,
+  logOut,
+  registerRequest
+} from "../actions/users";
 
 const initialState = {
   token: localStorage.getItem('token') || '',
   profile: {},
   user: {},
-  friendsList: [],
+  taskList: [],
+  task: {}
 }
 export default createReducer(initialState, (builder) => {
   builder
     .addCase(loginRequest.fulfilled, (state, action) => {
-      const { token, users } = action.payload;
+      const { token, user } = action.payload;
+      localStorage.setItem('user', JSON.stringify(user))
       localStorage.setItem('token', token)
       state.token = token
-      state.profile = users
+      state.profile = user
+
     })
     .addCase(loginRequest.rejected, (state, action) => {
+      console.log(action)
     })
     .addCase(logOut, (state, action) => {
       localStorage.removeItem('token')
@@ -34,27 +44,24 @@ export default createReducer(initialState, (builder) => {
       state.token = token
       state.profile = users
     })
-    // .addCase(getFriendsListRequest.fulfilled, (state, action) => {
-    //   const { users } = action.payload;
-    //   state.friendsList = users
+
+
+    // .addCase(getTaskListRequest.fulfilled, (state, action) => {
+    //   const { taskList } = action.payload;
+    //   state.taskList = taskList
     // })
-    .addCase(socketOnline, (state, action) => {
-      const { userId } = action.payload;
-      state.friendsList = state.friendsList.map(u => {
-        if (+u.id === +userId) {
-          u.isOnline = true
-        }
-        return u;
-      })
-    })
-    .addCase(socketOffline, (state, action) => {
-      const { userId } = action.payload;
-      state.friendsList = state.friendsList.map(u => {
-        if (+u.id === +userId) {
-          u.isOnline = false;
-          u.lastVisit = new Date()
-        }
-        return u;
-      })
-    })
+
+    // .addCase(getTaskRequest.fulfilled, (state, action) => {
+    //
+    //   const { task } = action.payload;
+    //   state.task = task
+    //   console.log(task, 22222)
+    // })
+
+
+
+
+
+
+
 })

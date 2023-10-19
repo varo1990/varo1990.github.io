@@ -5,14 +5,10 @@ import reset from "../assets/image/register/researching.png"
 import {useNavigate} from "react-router-dom";
 import {Helmet} from "react-helmet";
 import WrapperSignUp from "./WrapperSignUp";
+import Header from "./Header";
 
 function Reset(props) {
     const navigate = useNavigate()
-
-
-    const handleHome = useCallback(() => {
-        navigate('/home')
-    }, [navigate]);
 
     const handleLogin = useCallback(() => {
         navigate('/login')
@@ -25,15 +21,7 @@ function Reset(props) {
             <Helmet>
                 <title>Reset</title>
             </Helmet>
-            <header className="header">
-                <nav className="nav">
-                    <img src={logo} alt="logo"/>
-                    <a onClick={handleHome}>
-                        <img src={home} alt="home"/>
-                        <p>Home</p>
-                    </a>
-                </nav>
-            </header>
+              <Header/>
 
             <div className="reset_container">
                 <div className="reset_content">

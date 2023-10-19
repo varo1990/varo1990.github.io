@@ -85,6 +85,8 @@ class UsersController {
       next(e);
     }
   }
+
+
   static activate = async (req, res, next) => {
     try {
       const {code, email} = req.body;
