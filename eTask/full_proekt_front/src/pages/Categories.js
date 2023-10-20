@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import task from "../store/reducers/task";
 import {getTaskRequest} from "../store/actions/task";
 import Utils from "../Utils";
-
+import { Carousel } from 'react-responsive-carousel';
 const Categories = (props) => {
   const [checkedItems, setCheckedItems] = useState({});
 
@@ -18,7 +18,7 @@ const Categories = (props) => {
 
   const taskStatus = useSelector(state => state.task.taskStatus);
 
-
+  console.log(task, 5555555555555)
   const {id} = Utils.getUser()
 
   const handleCheckboxClick = (itemIndex) => {
@@ -34,9 +34,6 @@ const Categories = (props) => {
     dispatch(getTaskRequest(id));
   }, [dispatch, id ]);
 
-
-
-
   useEffect(() => {
     const savedState = localStorage.getItem('checkedItems');
     if (savedState) {
@@ -49,11 +46,11 @@ const Categories = (props) => {
   }, [checkedItems]);
 
 
-
-
   return (
     <div>
+
       <div className="categories">
+        {/*<Carousel>*/}
         {task.map(item=>(
           <div className="categories_container" style={{
             borderColor: item.color, borderRadius: "20px"
@@ -62,25 +59,25 @@ const Categories = (props) => {
               <h2>{item.title}</h2>
               <Edit />
             </div>
-
+            <div className="categories_container_list_color">
+              <img src={palette} alt="" />
+              <span style={{ background: item.color }}></span>
+            </div>
             <div className="categories_container_list">
               <ol>
-                <div className="categories_container_list_color">
-                  <img src={palette} alt="" />
-                  <span style={{ background: item.color }}></span>
-                </div>
 
-                  <li key={item.id}>
+                {item.tasks.map(task =>(
+                  <li key={task.id}>
                     <div className='categories_list_items'>
-                      <h3>{item.text}</h3>
+                      <h3>{task.title}</h3>
                       <div className="categories_clock">
                         <div className="categories_clock_item_1">
-                          <p>{item.description}</p>
+                          {/*<p>{item.text}</p>*/}
                           <img src={clock} alt="" />
-                          <p>{moment(item.datetime).format('LLLL')}</p>
+                          <p>{moment(task.datetime).format('LLLL')}</p>
                         </div>
                         <div className="categories_clock_item_1">
-                          <label htmlFor={`done-${item.id}`}>Done</label>
+                          <label htmlFor={`done-${task.id}`}>Done</label>
                           <input
                             type="checkbox"
                             className="login_checkbox"
@@ -94,12 +91,16 @@ const Categories = (props) => {
                       </div>
                     </div>
                   </li>
+                ))}
+
               </ol>
             </div>
           </div>
         ))}
-
+        {/*</Carousel>*/}
       </div>
+
+
     </div>
   );
 }
@@ -126,70 +127,6 @@ export default Categories;
 
 
 
-// import React, { useState } from 'react';
-// import palette from "../assets/image/dasboard/palette.svg";
-// import clock from "../assets/image/dasboard/clock.svg";
-// import Edit from "../components/Edit";
-// import { categoies, myTask } from "../data/DataTask";
-// import moment from "moment/moment";
-//
-// const Categories = (props) => {
-//   const [currentSlide, setCurrentSlide] = useState(0);
-//
-//   const handleNextSlide = () => {
-//     setCurrentSlide((currentSlide + 1) % myTask.taskItems.length);
-//   };
-//
-//   const handlePrevSlide = () => {
-//     setCurrentSlide((currentSlide - 1 + myTask.taskItems.length) % myTask.taskItems.length);
-//   };
-//
-//   return (
-//     <div>
-//       <div className="categories">
-//         <div className="categories_container" style={{
-//           borderColor: myTask.color, borderRadius: "20px"
-//         }}>
-//           <div className="categories_edit">
-//             <h2>{myTask.category}</h2>
-//             <Edit />
-//           </div>
-//
-//           <div className="categories_container_list">
-//             <ol>
-//               <div className="categories_container_list_color">
-//                 <img src={palette} alt="" />
-//                 <span style={{ background: myTask.color }}></span>
-//               </div>
-//               {myTask.taskItems.map((item, index) => (
-//                 <li key={index} className={index === currentSlide ? 'active' : ''}>
-//                   <div className='categories_list_items'>
-//                     <h3>{item.text}</h3>
-//                     <div className="categories_clock">
-//                       <div className="categories_clock_item_1">
-//                         <img src={clock} alt="" />
-//                         <p>{moment(item.datetime).format('LLLL')}</p>
-//                       </div>
-//                       <div className="categories_clock_item_1">
-//                         <label htmlFor="done">Done</label>
-//                         <input type="checkbox" className="login_checkbox" id="done" name="remember" />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </li>
-//               ))}
-//             </ol>
-//           </div>
-//
-//           <button onClick={handlePrevSlide}>Previous</button>
-//           <button onClick={handleNextSlide}>Next</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-//
-// export default Categories;
 
 
 

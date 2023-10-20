@@ -4,14 +4,14 @@ const router = express.Router();
 import TasksController from "../controllers/TasksController.js";
 const controller = new TasksController();
 
-router.get('/', controller.list.bind(controller));
-router.get('/:id', controller.getById.bind(controller));
 router.get('/user/:id', TasksController.getByUserId);
+router.get('/', controller.list);
+router.get('/:id', controller.getById);
 
-router.post('/', controller.create.bind(controller));
-router.put('/:id', controller.update.bind(controller));
+router.post('/', controller.create);
+router.put('/:id', controller.update);
 
-router.delete('/:id', controller.delete.bind(controller));
+router.delete('/:id', controller.delete);
 
 
 

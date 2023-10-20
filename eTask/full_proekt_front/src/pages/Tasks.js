@@ -9,14 +9,18 @@ import {categoies, categoryColors} from "../data/DataTask";
 import _ from "lodash";
 import moment from "moment";
 import {useDispatch} from "react-redux";
-import {createTask} from "../store/actions/task";
+import {createCategories, createTask} from "../store/actions/task";
+import Utils from "../Utils";
+import Api from "../Api";
 
 
 const Tasks = () => {
+  const {id} = Utils.getUser()
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [categoryList, setCategoryList] = useState(categoies);
+  const [categoryList, setCategoryList] = useState();
   const [category, setCategory] = useState("");
   const [categoryIndex, setCategoryIndex] = useState("");
   const [colorIndex, setColorIndex] = useState("");
@@ -31,6 +35,20 @@ const Tasks = () => {
   const [taskDateValid, setTaskDateValid] = useState('');
   const [taskInputError, setTaskInputError] = useState('');
   const [taskDateError, setTaskDateError] = useState('');
+
+  // const [createTaskData, setCreateTaskData] = useState({
+  //   color: '',
+  //   colorIndex: '',
+  // });
+
+  useEffect(() => {
+    (async () => {
+      const {data} = await Api.Categories(id);
+      setCategoryList(data);
+    })()
+  }, []);
+
+  console.log(categoryList, 5555)
 
 
   const handleSubmit = useCallback((ev) => {
@@ -49,21 +67,18 @@ const Tasks = () => {
     } else {
 
 
-      console.log('{ taskItems, category, color, email, telegram }',
-        {taskItems, category, color, email, telegram})
-      console.log('taskInput', taskInput)
       dispatch(createTask(
         {
-          title: 'title',
-          status: 'active',
+          title: taskItems[0].text,
+          status: 'ACTIVE',
           color,
           description: taskInput,
-          userId: 10,
-          categoryId: 20,
+          userId: id,
+          categoryId: category,
           email,
           telegram,
           issueDueDate: '2023-10-19',
-          startedAt: '2023-10-19',
+          startedAt: taskItems[0].datetime,
           finishedAt: '2023-10-19',
           isDone: true,
           isActive: true
@@ -84,21 +99,38 @@ const Tasks = () => {
     navigate('/dashboard');
   };
 
-  const handleCategoreisList = useCallback((title, index) => {
+  const handleCategoreisList = useCallback((id, index) => {
     setCategoryIndex(index);
-    setCategory(title, index);
+    setCategory(id);
   }, []);
 
-  const handleAddCategory = useCallback((title, index) => {
+  const handleAddCategory = useCallback(async (title, index) => {
+
+    setCategoryInput("");
+
+    const {payload} = await dispatch(createCategories(
+      {
+        title: title,
+        color: '#ccc',
+        userId: id,
+
+
+      }));
+
     setCategoryList((prev) => [
       ...prev,
-      {
-        key: "",
-        title: title
-      }
+      payload,
     ]);
-    setCategoryInput("");
   }, []);
+
+  // const handleChange = (key, value) => {
+  //   setCreateTaskData(
+  //     {
+  //       ...createTaskData,
+  //       [key]: value,
+  //     }
+  //   )
+  // }
 
   const handleColorList = useCallback((color, index) => {
     setColorIndex(index);
@@ -183,7 +215,7 @@ const Tasks = () => {
                       value={categoryInput}
                       onChange={(ev) => {
                         setCategoryInput(ev.target.value);
-                        setShowInstruction(false); // Скрыть инструкцию при изменении ввода
+                        setShowInstruction(false);
                       }}
                       type="text"
                       placeholder="Add a category title"
@@ -204,9 +236,9 @@ const Tasks = () => {
                   </div>
 
                   <div className='task_category_btn'>
-                    {categoryList.map((item, index) => (
+                    {categoryList?.map((item, index) => (
                       <span className={index === categoryIndex ? "cat-active" : 'hvr-sweep-to-right'}
-                            onClick={(() => handleCategoreisList(item.title, index))}
+                            onClick={(() => handleCategoreisList(item.id, index))}
                             key={item.id}> <p>+</p>
                         {item.title}
                     </span>

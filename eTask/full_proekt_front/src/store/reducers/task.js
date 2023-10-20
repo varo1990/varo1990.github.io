@@ -1,11 +1,14 @@
 import {createReducer} from "@reduxjs/toolkit";
-import {createTask, getTaskRequest} from "../actions/task";
+import {createCategories, createTask, getTaskRequest} from "../actions/task";
 
 const initialState = {
 
   taskList: [],
   task: [],
-  taskStatus: ''
+  tuskItem: [],
+  taskStatus: '',
+
+
 }
 export default createReducer(initialState, (builder) => {
   builder
@@ -23,7 +26,9 @@ export default createReducer(initialState, (builder) => {
     .addCase(getTaskRequest.fulfilled, (state, action) => {
 
       state.task = action.payload
+      // state.taskItem = action.payload.taskItems
       state.taskStatus = 'success'
+      console.log(state.task, 33333333333 )
 
 
     })

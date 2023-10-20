@@ -1,4 +1,3 @@
-
 class BaseController {
 
     constructor(model) {
@@ -11,7 +10,7 @@ class BaseController {
      * @param res
      * @returns {Promise<*>}
      */
-    async list(req, res) {
+    list = async (req, res) => {
         try {
             const items = await this._model.findAll();
 
@@ -29,12 +28,12 @@ class BaseController {
      * @param res
      * @returns {Promise<*>}
      */
-    async create(req, res) {
+    create = async (req, res) => {
         try {
             const {error} = this._model.rulesBody(req.body);
 
             if (error) {
-                return res.json({'message': error.message}).status(422)
+                return res.status(422).json({'message': error.message})
             }
 
             const newItem = await this._model.create(req.body);
@@ -53,7 +52,7 @@ class BaseController {
      * @param res
      * @returns {Promise<*>}
      */
-    async getById(req, res) {
+    getById = async (req, res) => {
         try {
             const {error} = this._model.rulesQuery(req.params);
 
@@ -81,7 +80,7 @@ class BaseController {
      * @param res
      * @returns {Promise<*>}
      */
-    async update(req, res) {
+    update = async (req, res) => {
         try {
             const {error} = this._model.rulesQuery(req.params);
 
@@ -103,7 +102,7 @@ class BaseController {
             console.error(error)
             return res.status(500).json({error: 'Internal Server Error'});
         }
-    }
+    };
 
     /**
      *
@@ -111,7 +110,7 @@ class BaseController {
      * @param res
      * @returns {Promise<*>}
      */
-    async delete(req, res) {
+    delete = async (req, res) => {
         try {
             const {error} = this._model.rulesQuery(req.params);
 
@@ -132,7 +131,7 @@ class BaseController {
             console.error(error)
             return res.status(500).json({error: 'Internal Server Error'});
         }
-    }
+    };
 }
 
 export default BaseController;

@@ -2,6 +2,7 @@ import {DataTypes, Model} from "sequelize";
 import sequelize from "../services/sequelize.js";
 import Joi from "joi";
 import BaseModel from "./BaseModel.js";
+import Users from "./Users.js";
 
 class Categories extends BaseModel {
     static rulesBody = (data) => {
@@ -9,6 +10,7 @@ class Categories extends BaseModel {
             Joi.object().keys(
                 {
                     title: Joi.string().required(),
+                    userId: Joi.number().required(),
                     color: Joi.string().required(),
                     description: Joi.string(),
                     isActive: Joi.bool(),
@@ -42,6 +44,10 @@ Categories.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        userId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         color: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -69,5 +75,9 @@ Categories.init(
         tableName: 'categories',
     }
 )
+
+Categories.belongsTo(Users, { foreignKey: 'user_id' });
+Users.hasMany(Categories, { foreignKey: 'user_id' });
+
 
 export default Categories;

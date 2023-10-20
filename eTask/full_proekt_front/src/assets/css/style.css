@@ -952,7 +952,8 @@ body {
 
 .dashboard {
   width: 100%;
-  height: 2717px;
+  max-height: 100vh;
+  overflow-y: auto;
   background-image: url("../image/dasboard/VectorDasborad1.png"), url("../image/dasboard/Vector2.png"), url("../image/dasboard/Desk_calendar_1.png"), url("../image/dasboard/Desk_calendar_2.png"), url("../image/dasboard/Desk_calendar_3.png"), url("../image/dasboard/Desk_calendar_3- 5.png"), url("../image/dasboard/Desk_calendar_3- 5.png");
   background-repeat: no-repeat;
   background-position: -223% -4%, -18% 101%, -1% 0, 87% 21%, 100% 64%, 67% 100%;

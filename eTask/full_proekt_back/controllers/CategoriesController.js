@@ -1,5 +1,6 @@
 import Categories from "../models/Categories.js";
 import BaseController from "./BaseController.js";
+import Tasks from "../models/Tasks.js";
 
 
 class CategoriesController extends BaseController {
@@ -7,25 +8,40 @@ class CategoriesController extends BaseController {
         super(Categories);
     }
 
-    async list(req, res) {
-          return super.list(req, res);
+    categoryWithTasks = async (req, res) => {
+
     }
 
-    async getById(req, res) {
-        return super.getById(req, res);
+    static getByUserId = async (req, res) => {
+        try {
+            const {error} = Categories.rulesQuery(req.params);
+
+            if (error) {
+                return res.json({'message': error.message}).status(422)
+            }
+
+            const options = {
+                where: {
+                    user_id: req.params.id,
+                    isActive: true
+                },
+                include: Tasks,
+            };
+
+            const items = await Categories.findAll(options);
+
+            if (!items) {
+                return res.status(404).json({error: 'Item not found'});
+            }
+
+            return res.json(items);
+        } catch (error) {
+            console.error(error)
+            return res.status(500).json({error: 'Internal Server Error'});
+        }
     }
 
-    async create(req, res) {
-        return super.create(req, res);
-    }
 
-    async update(req, res) {
-        return super.update(req, res);
-    }
-
-    async delete(req, res) {
-        return super.delete(req, res);
-    }
 }
 
 export default CategoriesController;

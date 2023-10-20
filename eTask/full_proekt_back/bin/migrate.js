@@ -1,6 +1,6 @@
 import Users from "../models/Users.js";
 import Categories from "../models/Categories.js";
-import Tasks from "../models/Task.js";
+import Tasks from "../models/Tasks.js";
 
 
 async function main() {
@@ -8,7 +8,7 @@ async function main() {
   await Categories.sync({ alter: true });
   await Tasks.sync({ alter: true });
 
-  process.exit(0);
+    process.exit(0);
 }
 
 main()

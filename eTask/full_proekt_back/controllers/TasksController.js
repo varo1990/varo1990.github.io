@@ -1,4 +1,5 @@
 import Tasks from "../models/Tasks.js";
+import Categories from "../models/Categories.js";
 import BaseController from "./BaseController.js";
 
 
@@ -6,6 +7,7 @@ class TasksController extends BaseController {
     constructor() {
         super(Tasks);
     }
+
     static getByUserId = async (req, res) => {
         try {
             const {error} = Tasks.rulesQuery(req.params);
@@ -14,15 +16,16 @@ class TasksController extends BaseController {
                 return res.json({'message': error.message}).status(422)
             }
 
-            const where = {
+            const options = {
                 where: {
                     user_id: req.params.id,
                     status: 'ACTIVE'
-                }
+                },
+                include: Categories,
             };
 
-            const items = await Tasks.findAll(where);
-            console.log(items)
+            const items = await Tasks.findAll(options);
+
             if (!items) {
                 return res.status(404).json({error: 'Item not found'});
             }
@@ -34,26 +37,6 @@ class TasksController extends BaseController {
         }
     }
 
-
-    async list(req, res) {
-        return super.list(req, res);
-    }
-
-    async getById(req, res) {
-        return super.getById(req, res);
-    }
-
-    async create(req, res) {
-        return super.create(req, res);
-    }
-
-    async update(req, res) {
-        return super.update(req, res);
-    }
-
-    async delete(req, res) {
-        return super.delete(req, res);
-    }
 }
 
 export default TasksController;

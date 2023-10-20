@@ -1,6 +1,8 @@
 import {DataTypes} from "sequelize";
 import sequelize from "../services/sequelize.js";
 import BaseModel from "./BaseModel.js";
+import Categories from "./Categories.js";
+import Users from "./Users.js";
 import Joi from "joi";
 
 class Tasks extends BaseModel {
@@ -117,6 +119,13 @@ Tasks.init(
     tableName: 'tasks',
   }
 )
+
+
+Tasks.belongsTo(Categories, { foreignKey: 'category_id' });
+Tasks.belongsTo(Users, { foreignKey: 'user_id' });
+
+Categories.hasMany(Tasks, { foreignKey: 'category_id' });
+Users.hasMany(Tasks, { foreignKey: 'user_id' });
 
 
 export default Tasks;

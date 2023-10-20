@@ -21,10 +21,16 @@ class Api {
     return api.post("/tasks", payload)
   }
 
+  static createCategories(payload) {
+    return api.post("/categories", payload)
+  }
+
   static Task(id ){
     return api.get(`/tasks/user/${id}`)
   }
-
+  static Categories(id ){
+    return api.get(`/categories/user/${id}`)
+  }
 
 
 
