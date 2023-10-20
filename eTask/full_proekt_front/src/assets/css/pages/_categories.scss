@@ -1,6 +1,17 @@
 .categories {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  margin: 30px auto;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 1100px;
+  background: azure;
+  border-radius: 10px;
+  border: 1px solid grey;
+  h2{
+    text-align: center;
+  }
 
   &_container {
     width: 900px;

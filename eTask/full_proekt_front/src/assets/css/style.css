@@ -956,7 +956,7 @@ body {
   overflow-y: auto;
   background-image: url("../image/dasboard/VectorDasborad1.png"), url("../image/dasboard/Vector2.png"), url("../image/dasboard/Desk_calendar_1.png"), url("../image/dasboard/Desk_calendar_2.png"), url("../image/dasboard/Desk_calendar_3.png"), url("../image/dasboard/Desk_calendar_3- 5.png"), url("../image/dasboard/Desk_calendar_3- 5.png");
   background-repeat: no-repeat;
-  background-position: -223% -4%, -18% 101%, -1% 0, 87% 21%, 100% 64%, 67% 100%;
+  background-position: -223% -4%, -18% 101%, -1% 0, 87% 5%, 100% 64%, 67% 100%;
   background-size: 1653px 1784px, 1249.882px 1686.81px, 237px 237px rotate(-24.17deg), 237px 237px rotate(29.331deg), 237px 237px rotate(12.742deg), 237px 237px rotate(-42.412deg), 237px 237px rotate(-42.412deg); }
   .dashboard_main {
     width: calc(100% - 200px);
@@ -1069,11 +1069,19 @@ body {
       font-weight: 700;
       line-height: normal;
       background: none;
-      border: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      cursor: pointer; }
+      cursor: pointer;
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 7px;
+      width: 120px;
+      cursor: pointer;
+      background: #3d3d3d00; }
+      .dashboard_creat button:hover {
+        background: #7dd8e3;
+        animation: myAnim 1s ease 0s 1 normal forwards; }
   .dashboard_container_items {
     width: 1275px;
     height: 220px;
@@ -1763,7 +1771,17 @@ body {
 
 .categories {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 20px;
+  margin: 30px auto;
+  max-height: 100vh;
+  overflow-y: auto;
+  width: 1100px;
+  background: azure;
+  border-radius: 10px;
+  border: 1px solid grey; }
+  .categories h2 {
+    text-align: center; }
   .categories_container {
     width: 900px;
     border: 5px solid var(--colors-purple, #AB68FF);

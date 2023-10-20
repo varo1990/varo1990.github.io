@@ -50,6 +50,7 @@ const Categories = (props) => {
     <div>
 
       <div className="categories">
+        <h2>My Tasks</h2>
         {/*<Carousel>*/}
         {task.map(item=>(
           <div className="categories_container" style={{
@@ -57,7 +58,7 @@ const Categories = (props) => {
           }}>
             <div className="categories_edit">
               <h2>{item.title}</h2>
-              <Edit />
+             <button>Delete</button>
             </div>
             <div className="categories_container_list_color">
               <img src={palette} alt="" />
@@ -69,6 +70,7 @@ const Categories = (props) => {
                 {item.tasks.map(task =>(
                   <li key={task.id}>
                     <div className='categories_list_items'>
+                      <button>Delete</button>
                       <h3>{task.title}</h3>
                       <div className="categories_clock">
                         <div className="categories_clock_item_1">

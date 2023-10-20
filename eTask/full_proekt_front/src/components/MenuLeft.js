@@ -41,7 +41,7 @@ function MenuLeft(props) {
           <li>
             <div onClick={() => toggleList('categories')}>
               <img src={category} alt=""/>
-              <NavLink to="/category"><p>Category</p></NavLink>
+              <NavLink to="/category"><p>My Tasks</p></NavLink>
             </div>
 
           </li>

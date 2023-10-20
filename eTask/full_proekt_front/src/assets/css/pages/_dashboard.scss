@@ -12,7 +12,7 @@
   url("#{$path}image/dasboard/Desk_calendar_3- 5.png"),
   url("#{$path}image/dasboard/Desk_calendar_3- 5.png");
   background-repeat: no-repeat;
-  background-position: -223% -4%, -18% 101%, -1% 0, 87% 21%, 100% 64%, 67% 100%;
+  background-position: -223% -4%, -18% 101%, -1% 0, 87% 5%, 100% 64%, 67% 100%;
   background-size: 1653px 1784px,
   1249.882px 1686.81px,
   237px 237px rotate(-24.17deg),
@@ -155,7 +155,7 @@
     height: 28px;
 
     button {
-      color: var(--colors-gray, rgba(0, 0, 0, 0.80));
+      color: var(--colors-gray, rgba(0, 0, 0, 0.8));
       text-align: center;
       font-family: "Roboto", "sans-serif";
       font-size: 24px;
@@ -163,11 +163,20 @@
       font-weight: 700;
       line-height: normal;
       background: none;
-      border: none;
       display: flex;
       align-items: center;
       justify-content: space-between;
       cursor: pointer;
+      border: 1px solid;
+      border-radius: 10px;
+      padding: 7px;
+      width: 120px;
+      cursor: pointer;
+      background: #3d3d3d00;
+      &:hover{
+        background: #7dd8e3;
+        animation: myAnim 1s ease 0s 1 normal forwards;
+      }
     }
   }
   &_container_items {
