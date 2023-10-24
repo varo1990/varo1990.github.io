@@ -8,10 +8,6 @@ class CategoriesController extends BaseController {
         super(Categories);
     }
 
-    categoryWithTasks = async (req, res) => {
-
-    }
-
     static getByUserId = async (req, res) => {
         try {
             const {error} = Categories.rulesQuery(req.params);
@@ -23,9 +19,16 @@ class CategoriesController extends BaseController {
             const options = {
                 where: {
                     user_id: req.params.id,
-                    isActive: true
+                    isActive: true,
                 },
-                include: Tasks,
+                include:
+                    {
+                        model: Tasks,
+                        where: {
+                            isActive: true,
+                            isDone: false
+                        }
+                    },
             };
 
             const items = await Categories.findAll(options);

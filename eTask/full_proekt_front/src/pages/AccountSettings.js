@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import Wrapper from "../components/Wrapper";
-import user from "../assets/image/dasboard/user.png"
+import user from "../assets/image/dasboard/user.jpg"
 import photo from "../assets/image/settings/photo.svg"
 import Languages from "../components/Languages";
 import edit from "../assets/image/settings/edit.svg"
@@ -10,14 +10,16 @@ import Analytics from "../components/Analytics";
 import AcountPhoto from "../components/AcountPhoto";
 import {useDispatch} from "react-redux";
 import {registerRequest} from "../store/actions/users";
+import Utils from "../Utils";
 
 function AccountSettings(props) {
     const dispatch = useDispatch();
+    const currentUser = Utils.getUser();
 
-    const [name, setName] = useState('');
+    const [name, setName] = useState(currentUser.firstName);
     const [dateOfBirth, setDateOfBirth] = useState('');
     const [female, setFemale] = useState('');
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState(currentUser.email);
 
     const [showEditName, setShowEditName] = useState(false);
     const [showEditDateOfBirth, setShowEditDateOfBirth] = useState(false);
@@ -92,7 +94,7 @@ function AccountSettings(props) {
                               value={formData.avatar}
                             />
                         </div>
-                        <h3>Linda Taylor</h3>
+                        <h3>{currentUser.firstName} {currentUser.lastName}</h3>
                     </div>
 
 

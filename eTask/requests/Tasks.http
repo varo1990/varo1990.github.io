@@ -4,12 +4,12 @@ Content-Type: application/json
 Content-Length: 395
 
 {
-  "title": "Task 1",
+  "title": "fwe wf",
   "color": "#7946F8",
   "status": "ACTIVE",
   "description": "Task 1",
   "userId": 1,
-  "categoryId": 1,
+  "categoryId": 32,
   "email": "test@mail.ru",
   "telegram": "test",
   "issueDueDate": "2023-10-19",

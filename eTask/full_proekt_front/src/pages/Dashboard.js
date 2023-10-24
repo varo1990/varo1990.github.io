@@ -1,7 +1,7 @@
 import React, {useCallback} from 'react';
 import Wrapper from "../components/Wrapper";
 import search from "../assets/image/dasboard/search.svg";
-import user from "../assets/image/dasboard/user.png";
+import user from "../assets/image/dasboard/user.jpg";
 import pluse from "../assets/image/dasboard/pluse.svg";
 import {useNavigate} from "react-router-dom";
 import Categories from "./Categories";
@@ -9,9 +9,11 @@ import DashboardSlider from "../components/DashboardSlider";
 import Analytics from "../components/Analytics";
 import {Helmet} from "react-helmet";
 import LogOut from "../components/LogOut";
+import Utils from "../Utils";
 
 function Dashboard(props) {
   const navigate = useNavigate()
+  const currentUser = Utils.getUser();
 
 
   const handleCreate = useCallback(() => {
@@ -34,7 +36,7 @@ function Dashboard(props) {
               </div>
               <div className="dashboard_user">
                 <img src={user} alt=""/>
-                <h2>Linda Taylor</h2>
+                <h2>{currentUser.firstName} {currentUser.lastName}</h2>
               </div>
 
             </div>

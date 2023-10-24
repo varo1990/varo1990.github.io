@@ -30,14 +30,20 @@ class BaseController {
      */
     create = async (req, res) => {
         try {
-            const {error} = this._model.rulesBody(req.body);
+            const data = req.body;
+            const {error} = this._model.rulesBody(data);
 
             if (error) {
                 return res.status(422).json({'message': error.message})
             }
 
-            const newItem = await this._model.create(req.body);
+            if (Array.isArray(data)) {
+                const newItem = await this._model.bulkCreate(data);
 
+                return res.status(201).json(newItem);
+            }
+
+            const newItem = await this._model.create(data);
             return res.status(201).json(newItem);
         } catch (error) {
             console.error(error)

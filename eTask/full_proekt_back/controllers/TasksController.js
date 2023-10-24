@@ -19,7 +19,35 @@ class TasksController extends BaseController {
             const options = {
                 where: {
                     user_id: req.params.id,
-                    status: 'ACTIVE'
+                    isActive: true
+                },
+                include: Categories,
+            };
+
+            const items = await Tasks.findAll(options);
+
+            if (!items) {
+                return res.status(404).json({error: 'Item not found'});
+            }
+
+            return res.json(items);
+        } catch (error) {
+            console.error(error)
+            return res.status(500).json({error: 'Internal Server Error'});
+        }
+    }
+    static getHistory = async (req, res) => {
+        try {
+            const {error} = Tasks.rulesQuery(req.params);
+
+            if (error) {
+                return res.json({'message': error.message}).status(422)
+            }
+
+            const options = {
+                where: {
+                    user_id: req.params.id,
+                    isDone: true
                 },
                 include: Categories,
             };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import palette from "../assets/image/dasboard/palette.svg";
 import clock from "../assets/image/dasboard/clock.svg";
 import Edit from "../components/Edit";
@@ -6,19 +6,20 @@ import { categoies, myTask } from "../data/DataTask";
 import moment from "moment/moment";
 import {useDispatch, useSelector} from "react-redux";
 import task from "../store/reducers/task";
-import {getTaskRequest} from "../store/actions/task";
+import {getTaskRequest, deleteCategory, deleteTask} from "../store/actions/task";
 import Utils from "../Utils";
 import { Carousel } from 'react-responsive-carousel';
+import Api from "../Api";
+
 const Categories = (props) => {
   const [checkedItems, setCheckedItems] = useState({});
 
   const dispatch = useDispatch();
 
-  const task = useSelector(state => state.task.task);
+  const categories = useSelector(state => state.task.task);
 
   const taskStatus = useSelector(state => state.task.taskStatus);
 
-  console.log(task, 5555555555555)
   const {id} = Utils.getUser()
 
   const handleCheckboxClick = (itemIndex) => {
@@ -29,10 +30,20 @@ const Categories = (props) => {
 
     }
   };
+
+  const handleDeleteCategory = useCallback((categoryId) => {
+    dispatch(deleteCategory(categoryId));
+  },[]);
+
+  const handleDeleteTask = useCallback((taskId,categoryIndex) => {
+    dispatch(deleteTask({taskId, categoryIndex}));
+  },[]);
+
   useEffect(() => {
 
     dispatch(getTaskRequest(id));
-  }, [dispatch, id ]);
+    console.log('getTaskRequest', id);
+  }, [ id ]);
 
   useEffect(() => {
     const savedState = localStorage.getItem('checkedItems');
@@ -52,13 +63,13 @@ const Categories = (props) => {
       <div className="categories">
         <h2>My Tasks</h2>
         {/*<Carousel>*/}
-        {task.map(item=>(
+        {categories.map((item,categoryIndex)=>(
           <div className="categories_container" style={{
             borderColor: item.color, borderRadius: "20px"
           }}>
             <div className="categories_edit">
               <h2>{item.title}</h2>
-             <button>Delete</button>
+             <button onClick={() => handleDeleteCategory(item.id)} >Delete</button>
             </div>
             <div className="categories_container_list_color">
               <img src={palette} alt="" />
@@ -70,8 +81,12 @@ const Categories = (props) => {
                 {item.tasks.map(task =>(
                   <li key={task.id}>
                     <div className='categories_list_items'>
-                      <button>Delete</button>
-                      <h3>{task.title}</h3>
+                      <div className="categories_list_items_title">
+                        <h3>{task.title}</h3>
+                        <button onClick={() => handleDeleteTask(task.id, categoryIndex)}>Delete</button>
+                      </div>
+
+
                       <div className="categories_clock">
                         <div className="categories_clock_item_1">
                           {/*<p>{item.text}</p>*/}
@@ -83,11 +98,11 @@ const Categories = (props) => {
                           <input
                             type="checkbox"
                             className="login_checkbox"
-                            id={`done-${item.id}`}
-                            name={`remember-${item.id}`}
-                            checked={checkedItems[item.id] || false}
-                            onChange={() => handleCheckboxClick(item.id)}
-                            disabled={checkedItems[item.id] ? true : false}
+                            id={`done-${task.id}`}
+                            name={`remember-${task.id}`}
+                            checked={checkedItems[task.id] || false}
+                            onChange={() => handleCheckboxClick(task.id)}
+                            disabled={checkedItems[task.id] ? true : false}
                           />
                         </div>
                       </div>

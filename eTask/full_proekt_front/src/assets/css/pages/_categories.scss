@@ -9,6 +9,9 @@
   background: azure;
   border-radius: 10px;
   border: 1px solid grey;
+
+
+
   h2{
     text-align: center;
   }
@@ -24,7 +27,54 @@
     align-items: stretch;
     justify-content: space-between;
 
+
+
+
+    button{
+      display: inline-block;
+      vertical-align: middle;
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      position: relative;
+      overflow: hidden;
+      color: red;
+      transition-property: color;
+      transition-duration: 0.3s;
+      cursor: pointer;
+      width: 70px;
+      height: 30px;
+      text-align: center;
+      padding: 7px;
+      border-radius: 10px;
+      border: 1px solid red;
+      &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #299CAA;
+        border-radius: 100%;
+        transform: scale(0);
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+      }
+      &:hover, .hvr-radial-out:focus, .hvr-radial-out:active {
+        color: white;
+        border: none;
+      }
+      &:hover:before, .hvr-radial-out:focus:before, .hvr-radial-out:active:before {
+        transform: scale(2);
+
+      }
+    }
+
   }
+
+
 
   &_edit {
     width: 700px;
@@ -99,6 +149,15 @@
       font-weight: 400;
       line-height: normal;
     }
+  }
+
+  &_list_items_title{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    //margin-bottom: 5px;
+
   }
 
   &_clock {

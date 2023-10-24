@@ -17,6 +17,10 @@ class Categories extends BaseModel {
                 }
             );
 
+        if (Array.isArray(data)) {
+            return Joi.array().items(schema).validate(data);
+        }
+
         return schema.validate(data);
     }
 
@@ -76,8 +80,8 @@ Categories.init(
     }
 )
 
-Categories.belongsTo(Users, { foreignKey: 'user_id' });
-Users.hasMany(Categories, { foreignKey: 'user_id' });
+Categories.belongsTo(Users, {foreignKey: 'user_id', onDelete: 'CASCADE'});
+Users.hasMany(Categories, {foreignKey: 'user_id'});
 
 
 export default Categories;

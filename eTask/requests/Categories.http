@@ -4,9 +4,9 @@ Content-Type: application/json
 Content-Length: 395
 
 {
-  "title": "Category 2",
+  "title": "Category 3",
   "color": "#7946F8",
-  "description": "Category 2",
+  "description": "Category 1",
   "userId": 1,
   "isActive": true
 }
