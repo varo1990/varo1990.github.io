@@ -22,14 +22,14 @@ function History(props) {
 
   const {id} = Utils.getUser()
 
-  const handleCheckboxClick = (itemIndex) => {
-    if (!checkedItems[itemIndex]) {
-
-      setCheckedItems({ ...checkedItems, [itemIndex]: true });
-    } else {
-
-    }
-  };
+  // const handleCheckboxClick = (itemIndex) => {
+  //   if (!checkedItems[itemIndex]) {
+  //
+  //     setCheckedItems({ ...checkedItems, [itemIndex]: true });
+  //   } else {
+  //
+  //   }
+  // };
 
 
   useEffect(() => {
@@ -38,10 +38,10 @@ function History(props) {
   }, [dispatch, id ]);
 
 
-  useEffect(() => {
-
-    dispatch(getTaskRequest(id));
-  }, [dispatch, id ]);
+  // useEffect(() => {
+  //
+  //   dispatch(getTaskRequest(id));
+  // }, [dispatch, id ]);
 
   useEffect(() => {
     const savedState = localStorage.getItem('checkedItems');
@@ -59,7 +59,7 @@ function History(props) {
         <div className="history">
           <h2>History</h2>
           <div className="history_content">
-            {task.map(item=>(
+            {history.map(item=>(
 
               <div className="history_container" style={{
                 borderColor: item.color, borderRadius: "20px"
@@ -67,7 +67,7 @@ function History(props) {
 
                 <div className="history_edit">
                   <h2>{item.title}</h2>
-                  <button>Delete</button>
+                  {/*<button>Delete</button>*/}
                 </div>
                 <div className="history_container_list_color">
 
@@ -82,7 +82,7 @@ function History(props) {
                           <div className="history_list_items_title">
 
                             <p>{task.title}</p>
-                            <button>Delete</button>
+                            {/*<button>Delete</button>*/}
                           </div>
                           <div className="history_clock">
                             <div className="history_clock_item_1">
@@ -91,16 +91,16 @@ function History(props) {
                               <p>{moment(task.datetime).format('LLLL')}</p>
                             </div>
                             <div className="history_clock_item_1">
-                              <label htmlFor={`done-${task.id}`}>Done</label>
-                              <input
-                                type="checkbox"
-                                className="login_checkbox"
-                                id={`done-${item.id}`}
-                                name={`remember-${item.id}`}
-                                checked={checkedItems[item.id] || false}
-                                onChange={() => handleCheckboxClick(item.id)}
-                                disabled={checkedItems[item.id] ? true : false}
-                              />
+                              {/*<label htmlFor={`done-${task.id}`}>Done</label>*/}
+                              {/*<input*/}
+                              {/*  type="checkbox"*/}
+                              {/*  className="login_checkbox"*/}
+                              {/*  id={`done-${item.id}`}*/}
+                              {/*  name={`remember-${item.id}`}*/}
+                              {/*  checked={checkedItems[item.id] || false}*/}
+                              {/*  onChange={() => handleCheckboxClick(item.id)}*/}
+                              {/*  disabled={checkedItems[item.id] ? true : false}*/}
+                              {/*/>*/}
                             </div>
                           </div>
                         </div>

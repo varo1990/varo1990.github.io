@@ -44,6 +44,41 @@ class CategoriesController extends BaseController {
         }
     }
 
+    static getHistory = async (req, res) => {
+        try {
+            const {error} = Categories.rulesQuery(req.params);
+
+            if (error) {
+                return res.json({'message': error.message}).status(422)
+            }
+
+            const options = {
+                where: {
+                    user_id: req.params.id,
+                    isActive: true,
+                },
+                include:
+                  {
+                      model: Tasks,
+                      where: {
+                          isDone: true
+                      }
+                  },
+            };
+
+            const items = await Categories.findAll(options);
+
+            if (!items) {
+                return res.status(404).json({error: 'Item not found'});
+            }
+
+            return res.json(items);
+        } catch (error) {
+            console.error(error)
+            return res.status(500).json({error: 'Internal Server Error'});
+        }
+    }
+
 
 }
 

@@ -23,6 +23,7 @@ const Categories = (props) => {
   const {id} = Utils.getUser()
 
   const handleCheckboxClick = (itemIndex) => {
+    Api.markTasksAsDone(itemIndex)
     if (!checkedItems[itemIndex]) {
 
       setCheckedItems({ ...checkedItems, [itemIndex]: true });

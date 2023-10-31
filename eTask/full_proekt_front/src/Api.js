@@ -22,7 +22,7 @@ class Api {
     }
 
     static markTasksAsDone(id) {
-        return api.put(`/tasks${id}`, {isDone: true})
+        return api.put(`/tasks/${id}`, {isDone: true})
     }
 
     static deleteTask(id) {
@@ -45,8 +45,8 @@ class Api {
         return api.get(`/categories/user/${id}`)
     }
 
-    static history(id) {
-        return api.get(`/tasks/history/${id}`)
+    static history(userId) {
+        return api.get(`/categories/history/${userId}`)
     }
 
 

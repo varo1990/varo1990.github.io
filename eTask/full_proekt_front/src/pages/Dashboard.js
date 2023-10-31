@@ -59,15 +59,15 @@ function Dashboard(props) {
             <Categories/>
           </div>
 
-          <div className="dashboard_in_progress">
-            <h3>IN Progress</h3>
-            <div class="dashboard_in_progress_item1">
-              <Analytics/>
-            </div>
-            <div class="dashboard_in_progress_item1">
+          {/*<div className="dashboard_in_progress">*/}
+          {/*  <h3>IN Progress</h3>*/}
+          {/*  <div class="dashboard_in_progress_item1">*/}
+          {/*    <Analytics/>*/}
+          {/*  </div>*/}
+          {/*  <div class="dashboard_in_progress_item1">*/}
 
-            </div>
-          </div>
+          {/*  </div>*/}
+          {/*</div>*/}
         </div>
       </div>
     </Wrapper>
