@@ -171,9 +171,9 @@ h3 {
   color: white; }
 
 .header {
-  border-bottom: 1px solid #989393;
-  border-left: 1px solid #989393;
-  border-right: 1px solid #989393; }
+  border-bottom: 1px solid #5d585875;
+  border-left: 1px solid #5d585875;
+  border-right: 1px solid #5d585875; }
   .header_content {
     margin: 0 auto;
     display: flex;
