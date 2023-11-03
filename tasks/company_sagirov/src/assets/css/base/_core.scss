@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-size: 14px;
+  //background-color: white;
+
+  background: url("#{$path}images/space_star_wallpaper_026 (4).png"),
+  url("#{$path}images/mars-kosmos-korabl.png");
+  background-repeat: no-repeat;
+  background-position: 3% 89%, 30% 0%;
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer;
+
+}
+
+.active {
+  color: grey;
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+h2 {
+  font-size: 58px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, white 0%, white 26%, #e78346 72%, red 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+  overflow: hidden;
+  position: relative;
+}
+
+h4 {
+  text-transform: uppercase;
+  background: linear-gradient(to right, white 0%, white 26%, #e78346 72%, red 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+  font-size: 20px;
+}
+
+h3 {
+  margin: 10px;
+  font-size: 24px;
+}
+
+
+
+
+

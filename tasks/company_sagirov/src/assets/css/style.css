@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-size: 14px;
+  background: url("../images/space_star_wallpaper_026 (4).png"), url("../images/mars-kosmos-korabl.png");
+  background-repeat: no-repeat;
+  background-position: 3% 89%, 30% 0%; }
+
+a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  cursor: pointer; }
+
+.active {
+  color: grey;
+  border-bottom: 1px solid;
+  padding-bottom: 5px; }
+
+h2 {
+  font-size: 58px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, white 0%, white 26%, #e78346 72%, red 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+  overflow: hidden;
+  position: relative; }
+
+h4 {
+  text-transform: uppercase;
+  background: linear-gradient(to right, white 0%, white 26%, #e78346 72%, red 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+  font-size: 20px; }
+
+h3 {
+  margin: 10px;
+  font-size: 24px; }
+
+.btn-21 {
+  cursor: pointer;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  width: 245px;
+  height: 45px;
+  position: relative;
+  color: #bbb;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+  border-radius: 0px;
+  margin: 5px;
+  background: transparent;
+  padding: 5px;
+  overflow: hidden;
+  border: none; }
+
+.btn-21:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, transparent, #bbb);
+  animation: btn-21-left 2s linear infinite;
+  transition: 0.5s ease-in-out; }
+
+.btn-21:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to top, transparent, #bbb);
+  animation: btn-21-top 2s linear infinite;
+  animation-delay: 1s;
+  transform: translateY(-100%); }
+
+.btn-21 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 6px; }
+
+.btn-21 span:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #bbb);
+  animation: btn-21-right 2s linear infinite; }
+
+.btn-21 span:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 12px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #bbb);
+  animation: btn-22-bottom 2s linear infinite;
+  animation-delay: 1s;
+  transform: translateY(-100%); }
+
+.btn-21:hover:before {
+  background: linear-gradient(to left, transparent, red); }
+
+.btn-21:hover:after {
+  background: linear-gradient(to top, transparent, red); }
+
+.btn-21 span:hover:before {
+  background: linear-gradient(to bottom, transparent, red); }
+
+.btn-21 span:hover:after {
+  background: linear-gradient(to right, transparent, red); }
+
+.btn-21:hover {
+  color: red; }
+
+.btn-21:active:before {
+  background: linear-gradient(to left, transparent, #00a7fc); }
+
+.btn-21:active:after {
+  background: linear-gradient(to top, transparent, #00a7fc); }
+
+.btn-21 span:active:before {
+  background: linear-gradient(to bottom, transparent, #00a7fc); }
+
+.btn-21 span:active:after {
+  background: linear-gradient(to right, transparent, #00a7fc); }
+
+.btn-21:active {
+  color: #00a7fc; }
+
+@keyframes btn-21-top {
+  0% {
+    transform: translateY(100%); }
+  100% {
+    transform: translateY(-100%); } }
+@keyframes btn-21-left {
+  0% {
+    transform: translateX(100%); }
+  100% {
+    transform: translateX(-100%); } }
+@keyframes btn-21-bottom {
+  0% {
+    transform: translateY(-100%); }
+  100% {
+    transform: translateY(100%); } }
+@keyframes btn-21-right {
+  0% {
+    transform: translateX(-100%); }
+  100% {
+    transform: translateX(100%); } }
+.wrapper {
+  width: 100%;
+  height: 600px;
+  color: white; }
+
+.header {
+  border-bottom: 1px solid #989393;
+  border-left: 1px solid #989393;
+  border-right: 1px solid #989393; }
+  .header_content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    height: 100px;
+    width: 1200px; }
+
+span {
+  border-bottom: 1px solid #c2bcbc;
+  border-left: 1px solid #776d6d;
+  width: 245px;
+  height: 100px;
+  transform: skewX(45deg);
+  margin-left: 300px;
+  margin-top: -7px; }
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 77px auto;
+  width: 1200px;
+  padding: 15px; }
+  .content_title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px; }
+  .content_container {
+    display: flex;
+    height: 230px;
+    width: 350px;
+    flex-wrap: wrap;
+    align-items: center; }
+  .content_container_item {
+    width: calc(100% / 3);
+    max-height: 100px;
+    margin: 10px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.4s;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 50% 50%/calc(100% - 4px) calc(100% - 4px) no-repeat, linear-gradient(90deg, transparent 0%, rgba(147, 130, 130, 0.19) 100%);
+    padding: 6px;
+    box-sizing: border-box; }
+    .content_container_item:nth-child(1) {
+      height: 300px; }
+    .content_container_item:nth-child(2) {
+      height: 300px; }
+    .content_container_item:nth-child(3) {
+      height: 300px; }
+    .content_container_item:nth-child(4) {
+      height: 300px; }
+    .content_container_item:nth-child(1):hover {
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 50% 50%/calc(100% - 6px) calc(100% - 6px) no-repeat, linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.36) 100%);
+      padding: 7px;
+      box-sizing: border-box; }
+    .content_container_item:nth-child(2):hover {
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 50% 50%/calc(100% - 6px) calc(100% - 6px) no-repeat, linear-gradient(231deg, transparent 0%, rgba(255, 255, 255, 0.36) 100%);
+      padding: 7px;
+      box-sizing: border-box; }
+    .content_container_item:nth-child(3):hover {
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 50% 50%/calc(100% - 6px) calc(100% - 6px) no-repeat, linear-gradient(38deg, transparent 0%, rgba(255, 255, 255, 0.36) 100%);
+      padding: 7px;
+      box-sizing: border-box; }
+    .content_container_item:nth-child(4):hover {
+      background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 50% 50%/calc(100% - 6px) calc(100% - 6px) no-repeat, linear-gradient(313deg, transparent 0%, rgba(255, 255, 255, 0.36) 100%);
+      padding: 7px;
+      box-sizing: border-box; }
+    .content_container_item:hover h3 {
+      font-size: 28px; }
+
+.navBar {
+  padding: 10px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-evenly; }
+
+@media only screen and (max-width: 1700px) {
+  body {
+    font-size: 14px;
+    background: url("../images/space_star_wallpaper_026 (4).png"), url("../images/mars-kosmos-korabl.png");
+    background-repeat: no-repeat;
+    background-position: 3% 89%, 0% 0%; } }
+@media only screen and (max-width: 1400px) {
+  body {
+    font-size: 14px;
+    background: url("../images/space_star_wallpaper_026 (4).png"), url("../images/mars-kosmos-korabl.png");
+    background-repeat: no-repeat;
+    background-position: 3% 89%, 42% 0%; } }
+@media only screen and (max-width: 992px) {
+  .header {
+    border: none;
+    width: 100%; }
+    .header_content {
+      margin-left: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      height: 100px; } }
+@media only screen and (max-width: 767px) {
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 77px auto;
+    width: 1200px;
+    padding: 15px; } }
+@media only screen and (max-width: 560px) {
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 77px auto;
+    width: 1200px;
+    padding: 15px;
+    flex-direction: column; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,9 @@
+body {
+  font-size: 14px;
+  //background-color: white;
+
+  background: url("#{$path}images/space_star_wallpaper_026 (4).png"),
+  url("#{$path}images/mars-kosmos-korabl.png");
+  background-repeat: no-repeat;
+  background-position: 3% 89%, 0% 0%;
+}
