@@ -22,8 +22,8 @@ function App(props) {
           <Route path="/contacts" element={<Contacts />}/>
 
 
-          {/*<Route path="/not-found" element={<NotFound />}/>*/}
-          {/*<Route path="*" element={<Navigate to=""/>}/>*/}
+          <Route path="/not-found" element={<NotFound />}/>
+          <Route path="*" element={<Navigate to="not-found"/>}/>
 
         </Routes>
       </BrowserRouter></div>
