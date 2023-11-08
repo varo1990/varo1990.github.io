@@ -1,0 +1,146 @@
+.blockOne {
+  position: relative;
+  display: flex;
+  width: 1427px;
+  //height: 599px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  z-index: 9999;
+  margin-bottom: 105px;
+
+  &_footer {
+    margin-top: 50px;
+    width: 520px;
+    height: 165px;
+    border-radius: 20px;
+    background: #673F1B;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: #FFF;
+      width: 304px;
+      text-align: center;
+      font-family: Jost;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 50px;
+    }
+
+    img {
+      margin-top: 16px;
+      margin-bottom: 24px;
+      position: absolute;
+      left: -1%;
+      top: -43%;
+    }
+  }
+
+
+  &_test {
+    width: 223px;
+    height: 61.492px;
+    border-radius: 7.409px;
+    background: #1bc32969;;
+    position: relative;
+  }
+
+  span {
+    width: 205.96px;
+    height: 48.897px;
+    position: absolute;
+    left: 8.15px;
+    bottom: 5.927px;
+    border: 1px solid;
+    border-radius: 7.409px;
+    background: rgba(27, 195, 41, 0.60);
+
+    p {
+      color: #FFF;
+      position: absolute;
+      right: -48.307px;
+      top: 14.744px;
+      text-align: center;
+      font-family: Inter;
+      font-size: 16.299px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 52px;
+    padding-left: 69px;
+
+    h4 {
+      color: #FFF;
+      font-family: Jost;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    h5 {
+      color: #333;
+      width: 536px;
+      font-family: Jost;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+  }
+
+  &_img {
+    margin-top: 72px;
+    margin-right: 52px;
+  }
+
+  &_item_right {
+    margin-top: 209px;
+
+    h3 {
+      color: #333;
+
+      font-family: Jost;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+  }
+
+  &_item_right_list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    img {
+      margin-right: 10px;
+    }
+
+    p {
+      color: #333;
+      font-family: Jost;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+
+    }
+  }
+}

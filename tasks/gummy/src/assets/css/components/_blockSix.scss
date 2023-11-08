@@ -1,0 +1,239 @@
+.blockSix {
+  width: 1427px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  //margin-bottom: 100px;
+
+  h1 {
+    color: #FFF;
+    width: 1045px;
+    font-family: Inter;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 92.023%; /* 73.618px */
+    letter-spacing: -1.6px;
+    text-transform: uppercase;
+    opacity: 0.1;
+  }
+
+  &_content {
+    position: absolute;
+    top: -1%;
+
+
+    h2 {
+      color: #FFF;
+      width: 986px;
+      font-family: Inter;
+      font-size: 42px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+      margin-bottom: 78px;
+    }
+
+  }
+
+  &_content_item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 31px;
+
+
+  }
+
+  &_content_item_aside {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 20px;
+    border-radius: 10px;
+    background: #FFF;
+    margin-right: 30px;
+
+    &:nth-child(1n+3) {
+      margin-right: 0;
+    }
+
+
+    .heart {
+      margin-top: 10px;
+      margin-left: 15px;
+    }
+
+
+  }
+
+  .block_one {
+    width: 300px;
+    height: 157px;
+
+    p {
+      color: #000;
+      width: 171px;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 133.687%; /* 16.042px */
+    }
+
+    h4 {
+      color: #4267B2;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+
+  }
+
+  .block_two {
+    width: 630px;
+    height: 157px;
+
+    h3 {
+      color: #385898;
+      margin-bottom: 9px;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    h4 {
+      color: #4267B2;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    p {
+      color: #000;
+      width: 497px;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16.3px; /* 135.833% */
+      margin-bottom: 13px;
+    }
+  }
+
+  .block_three {
+    width: 410px;
+    height: 128px;
+
+    h3 {
+      color: #385898;
+      margin-bottom: 9px;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    h4 {
+      color: #4267B2;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+
+  }
+
+  &_content_item_aside_title {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+
+  &_content_item_aside_title_time {
+    display: flex;
+
+    span {
+      color: #8F9396;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 133.687%; /* 16.042px */
+      margin-right: 5px;
+    }
+
+    h4 {
+      color: #54585C;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 133.687%; /* 16.042px */
+    }
+  }
+
+  &_content_footer {
+    margin: 0 auto;
+    width: 1287px;
+    height: 111px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #F1B300;
+    display: flex;
+    align-items: center;
+
+    h2 {
+      color: #333;
+      text-align: center;
+      font-family: Jost;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    p {
+      color: #FFF;
+      text-align: center;
+      font-family: Inter;
+      font-size: 16.299px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    span {
+      width: 205.96px;
+      height: 48.897px;
+      border-radius: 7.409px;
+      background: rgba(27, 195, 41, 0.60);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }
+
+  &_footer_btn {
+    width: 223px;
+    height: 61.492px;
+    border-radius: 7.409px;
+    background: #1bc32980;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

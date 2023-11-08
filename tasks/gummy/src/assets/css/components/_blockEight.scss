@@ -1,0 +1,104 @@
+.blockEight {
+  width: 1427px;
+  height: 728px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(25px);
+  display: flex;
+
+  &_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    h2{
+      color: #FFF;
+      width: 736px;
+      text-align: center;
+      font-family: Inter;
+      font-size: 42px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+    h3{
+      color: #333;
+      width: 739px;
+      text-align: center;
+      font-family: Inter;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+
+  &_footer{
+    width: 520px;
+    height: 191px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #673F1B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .bear_foot{
+      position: absolute;
+      top: -25%;
+      left: -1%;
+      width: 84.814px;
+      height: 138.281px;
+      flex-shrink: 0;
+    }
+
+    h4{
+      color: #FFF;
+      width: 357px;
+      text-align: center;
+      font-family: Jost;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  &_footer_btn{
+    width: 223px;
+    height: 61.492px;
+    border-radius: 7.409px;
+    background: rgba(27, 195, 41, 0.63);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 21px;
+    span{
+      width: 205.96px;
+      height: 48.897px;
+      border-radius: 7.409px;
+      background: rgba(27, 195, 41, 0.60);
+      bottom: 5.927px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    p{
+      color: #FFF;
+
+      text-align: center;
+      font-family: Inter;
+      font-size: 16.299px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+
+
+
+
+}

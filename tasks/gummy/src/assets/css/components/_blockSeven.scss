@@ -1,0 +1,140 @@
+.blockSeven {
+  width: 1427px;
+  height: 1747px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #FFF;
+  margin-top: 271px;
+  margin-bottom: 108px;
+  padding: 60px 69px;
+  h2{
+    color: #673F1B;
+    width: 730px;
+    font-family: Inter;
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+  .hospital_img{
+    border-radius: 20px;
+    height: 533px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  .hospital2_img{
+    border-radius: 20px;
+    height: 852.588px;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+  .sign1{
+    bottom: -5%;
+    position: absolute;
+    right: 8%;
+  }
+  .sign2{
+    bottom: -5%;
+    position: absolute;
+    right: 8%;
+  }
+  &_container{
+
+  }
+  &_container_item{
+    display: flex;
+    align-items: center;
+  }
+  &_container_item2{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  &_container_desc{
+    width: 850px;
+    height: 502px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid #673F1B;
+    background: rgba(255, 255, 255, 0.00);
+    padding: 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    h3{
+      color: #333;
+
+      font-family: Jost;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    h4{
+      color: #54585C;
+
+      font-family: Jost;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+    p{
+      color: #333;
+      width: 754px;
+      font-family: Jost;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 174.5%; /* 34.9px */
+      margin-bottom: 30px;
+    }
+  }
+  &_container_desc2{
+    width: 850px;
+    height: 913px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid #673F1B;
+    background: rgba(255, 255, 255, 0.00);
+    padding: 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    margin-right: 20px;
+    h3{
+      color: #333;
+
+      font-family: Jost;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+    h4{
+      color: #54585C;
+
+      font-family: Jost;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 20px;
+    }
+    p{
+      color: #333;
+      width: 754px;
+      font-family: Jost;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 174.5%; /* 34.9px */
+      margin-bottom: 30px;
+    }
+  }
+}
