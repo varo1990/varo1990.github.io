@@ -25,35 +25,38 @@ function BlockOne(props) {
 
         </div>
       </div>
-      <div className="blockOne_img">
-        <img src={bearBig} alt=""/>
+      <div className='blockOne_content'>
+        <div className="blockOne_img">
+          <img src={bearBig} alt=""/>
 
+        </div>
+        <div className="blockOne_item_right">
+          <h3>Come funziona GummyBear Fit?</h3>
+          <div className="blockOne_item_right_list">
+            <img src={sber} alt=""/>
+            <p>Brucia i grass</p>
+          </div>
+          <div className="blockOne_item_right_list">
+            <img src={sber} alt=""/>
+            <p>Accelerare il metabolismo</p>
+          </div>
+
+          <div className="blockOne_item_right_list">
+            <img src={sber} alt=""/>
+            <p>Riduce l'appetito</p>
+          </div>
+          <div className="blockOne_item_right_list">
+            <img src={sber} alt=""/>
+            <p>Fornisce energia per tutta la giornata</p>
+          </div>
+          <div className="blockOne_item_right_list">
+            <img src={sber} alt=""/>
+            <p>Migliora la digestione</p>
+          </div>
+
+        </div>
       </div>
-      <div className="blockOne_item_right">
-        <h3>Come funziona GummyBear Fit?</h3>
-        <div className="blockOne_item_right_list">
-          <img src={sber} alt=""/>
-          <p>Brucia i grass</p>
-        </div>
-        <div className="blockOne_item_right_list">
-          <img src={sber} alt=""/>
-          <p>Accelerare il metabolismo</p>
-        </div>
 
-        <div className="blockOne_item_right_list">
-          <img src={sber} alt=""/>
-          <p>Riduce l'appetito</p>
-        </div>
-        <div className="blockOne_item_right_list">
-          <img src={sber} alt=""/>
-          <p>Fornisce energia per tutta la giornata</p>
-        </div>
-        <div className="blockOne_item_right_list">
-          <img src={sber} alt=""/>
-          <p>Migliora la digestione</p>
-        </div>
-
-      </div>
 
     </div>
   );

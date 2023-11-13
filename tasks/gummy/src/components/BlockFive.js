@@ -15,9 +15,6 @@ function BlockFive(props) {
           <img src={people1} alt=""/>
           <img src={people2} alt=""/>
           <img src={people5} alt=""/>
-
-        </div>
-        <div className="blockFive_content_item">
           <img src={people3} alt=""/>
           <img src={people4} alt=""/>
           <img src={people6} alt=""/>

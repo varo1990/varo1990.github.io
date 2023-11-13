@@ -9,6 +9,9 @@
   z-index: 9999;
   margin-bottom: 105px;
 
+  &_content{
+    display: flex;
+  }
   &_footer {
     margin-top: 50px;
     width: 520px;

@@ -12,17 +12,17 @@ import BlockEight from "../components/BlockEight";
 function Home(props) {
   return (
     <div className='home'>
-
       <BlockOne/>
       <BlockTwo/>
       <BlockThree/>
+
       <BlockFour/>
       <BlockFive/>
       <BlockSix/>
       <BlockSeven/>
       <BlockEight/>
 
-      <Footer/>
+      {/*<Footer/>*/}
 
     </div>
   );

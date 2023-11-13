@@ -25,9 +25,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
     img {
-      width: 466px;
+      width: 400px;
       height: 314px;
       object-fit: cover;
       margin: 17px;
