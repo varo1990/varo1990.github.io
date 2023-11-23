@@ -1,0 +1,19 @@
+.home{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 1440px;
+  height: 980px;
+  margin: 0 auto;
+  background-image: url("#{$path}image/purple light.png"),
+  url("#{$path}image/purple ball.png"),
+  url("#{$path}image/red ball.png"),
+  url("#{$path}image/red light.png"),
+  url("#{$path}image/red ball.png")
+
+;
+  background-size: 300px 300px, 60px 60px, 83px 83px, 311px 311px, 28px 28px;
+  background-position: 60% 0, 72% 1%, 45% 10%, 0% 39%, 50% 50%;
+  background-repeat: no-repeat;
+}

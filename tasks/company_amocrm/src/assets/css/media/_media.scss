@@ -1,0 +1,34 @@
+@media (pointer: coarse){
+@import "coarse";
+}
+@media only screen and (max-width: 1700px) {
+  @import "max-1700";
+}
+
+@media only screen and (max-width: 1400px) {
+  @import "max-1400";
+}
+
+@media only screen and (max-width: 1170px) {
+  @import "max-1170";
+}
+
+@media only screen and (max-width: 992px) {
+  @import "max-992";
+}
+
+@media only screen and (max-width: 767px) {
+  @import "max-768";
+}
+
+@media only screen and (max-width: 560px) {
+  @import "max-560";
+}
+
+@media only screen and (max-width: 425px) {
+  @import "max-425";
+}
+
+@media only screen and (max-width: 375px) {
+  @import "max-375";
+}

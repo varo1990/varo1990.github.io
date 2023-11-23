@@ -1,0 +1,38 @@
+.header{
+
+  width: 1140px;
+  height: 73px;
+  margin: 49px auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: white;
+  //border: 1px solid white;
+  padding-top: 15px;
+  &_logo{
+    width: 165px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &_contact{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+}
+.navbar{
+  width: 503px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+
+
+}
